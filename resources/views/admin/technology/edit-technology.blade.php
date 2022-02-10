@@ -29,21 +29,21 @@
                   <x-Message-component/>
                   
                   <h5 class="card-title">Edit Technology</h5>
-                    <form action="{{route('technology.update',$Technology->id)}}" method="post" enctype = "multipart/form-data">
+                    <form action="{{route('technology.update',$technology->id)}}" method="post" enctype = "multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label for="Name">Name</label>
-                                <input type="text" value="{{$Technology->name}}" name = "name" class="form-control" id="exampleInputEmail1" aria-describedby="Name" >
+                                <input type="text" value="{{$technology->name}}" name = "name" class="form-control" id="exampleInputEmail1" aria-describedby="Name" >
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="file" value="{{$Technology->image}}" name = "image" class="form-control" id="exampleInputEmail1" aria-describedby="image" >
+                                <input type="file" value="{{$technology->image}}" name = "image" class="form-control" id="exampleInputEmail1" aria-describedby="image" >
                             </div>
-                            <img class="mt-3 mb-3" width="100" height="100" src="{{asset('assets/images/'.$Technology->image)}}" alt="">
+                            <img class="mt-3 mb-3" width="100" height="100" src="{{asset('assets/images/'.$technology->image)}}" alt="">
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" name = "description"  id="exampleFormControlTextarea1" rows="3">{{$Technology->description}}</textarea>
+                                <textarea class="form-control" name = "description"  id="exampleFormControlTextarea1" rows="3">{{$technology->description}}</textarea>
                             </div>
                             <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Update</button>
                     </form>

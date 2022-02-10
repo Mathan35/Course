@@ -38,7 +38,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Technology as $item)
+                        @foreach ($technology as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <td class="h6">{{$item->name}}</td>

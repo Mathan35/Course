@@ -15,8 +15,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $User  = QueryBuilder::for(User::class)->where('role','!=','0')->get();   
-        return view('admin.admin-user.view-admin-user', compact('User'));
+        $user  = QueryBuilder::for(User::class)->where('role','!=','0')->get();   
+        return view('admin.admin-user.view-admin-user', compact('user'));
     }
 
     /**
@@ -26,8 +26,8 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        $Role  = QueryBuilder::for(Role::class)->get();   
-        return view('admin.admin-user.create-admin-user', compact('Role'));
+        $role  = QueryBuilder::for(Role::class)->get();   
+        return view('admin.admin-user.create-admin-user', compact('role'));
     }
 
     /**
@@ -38,13 +38,13 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        $User = new User;
-        $User->name = $request->name;
-        $User->email = $request->email;
-        $User->role = $request->role;
-        $User->status = 1;
-        $User->password = Hash::make($request->password);
-        $User->save();
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->status = 1;
+        $user->password = Hash::make($request->password);
+        $user->save();
         return redirect()->back()->with('success', 'user created successfully with role');
     }
 
@@ -67,9 +67,9 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        $User  = QueryBuilder::for(User::class)->find($id);   
-        $Role  = QueryBuilder::for(Role::class)->get();   
-        return view('admin.admin-user.edit-admin-user', compact('Role','User'));
+        $user  = QueryBuilder::for(User::class)->find($id);   
+        $role  = QueryBuilder::for(Role::class)->get();   
+        return view('admin.admin-user.edit-admin-user', compact('role','user'));
     }
 
     /**
@@ -81,12 +81,12 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $User = User::find($id);
-        $User->name = $request->name;
-        $User->email = $request->email;
-        $User->role = $request->role;
-        $User->password = Hash::make($request->password);
-        $User->save();
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->password = Hash::make($request->password);
+        $user->save();
         return redirect()->back()->with('success', 'user updated successfully with role');
 
     }
@@ -99,7 +99,7 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        $User = User::find($id)->delete();
+        $user = User::find($id)->delete();
         return redirect()->back()->with('success', 'user deleted successfully');
 
 

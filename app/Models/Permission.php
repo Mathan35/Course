@@ -19,7 +19,7 @@ class Permission extends Model
         'permission_group_id',
      
     ];
-    public function PermissionGroup()
+    public function permissionGroup()
     {
         return $this->hasOne(PermissionGroup::class,'id','permission_group_id');
     }

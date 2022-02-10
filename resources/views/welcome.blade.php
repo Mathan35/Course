@@ -8,7 +8,7 @@
             <div class="section-wrapper">
                 <div class="sponsor-slider">
                     <div class="swiper-wrapper">
-                        @foreach ($Technology as $item)
+                        @foreach ($technology as $item)
                         <div class="swiper-slide">
                             <div class="sponsor-item">
                                 <div class="sponsor-thumb">
@@ -35,7 +35,7 @@
             </div>
             <div class="section-wrapper">
                 <div class="row g-2 justify-content-center row-cols-xl-6 row-cols-md-3 row-cols-sm-2 row-cols-1">
-                    @forelse ($Category as $item)					
+                    @forelse ($category as $item)					
                     <div class="col">
                         <div class="category-item text-center">
                             <div class="category-inner">
@@ -71,7 +71,7 @@
             </div>
             <div class="section-wrapper">
                 <div class="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
-                    @forelse($Course as $item)
+                    @forelse($course as $item)
                     <div class="col">
                         <div class="course-item">
                             <div class="course-inner">
@@ -117,7 +117,7 @@
                             <div class="count-item">
                                 <div class="count-inner">
                                     <div class="count-content">
-                                        <h2><span class="count" data-to="{{$Course->count()}}" data-speed="1500"></span><span>+</span></h2>
+                                        <h2><span class="count" data-to="{{$course->count()}}" data-speed="1500"></span><span>+</span></h2>
                                         <p>Top Courses </p>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                             <div class="count-item">
                                 <div class="count-inner">
                                     <div class="count-content">
-                                        <h2><span class="count" data-to="{{$Technology->count()}}" data-speed="1500"></span><span>+</span></h2>
+                                        <h2><span class="count" data-to="{{$technology->count()}}" data-speed="1500"></span><span>+</span></h2>
                                         <p>Top Most Technologies</p>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                             <div class="count-item">
                                 <div class="count-inner">
                                     <div class="count-content">
-                                        <h2><span class="count" data-to="{{$Category->count()}}" data-speed="1500"></span><span>+</span></h2>
+                                        <h2><span class="count" data-to="{{$category->count()}}" data-speed="1500"></span><span>+</span></h2>
                                         <p>Popular Categories</p>
                                     </div>
                                 </div>

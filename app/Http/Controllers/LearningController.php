@@ -17,8 +17,8 @@ class LearningController extends Controller
      */
     public function index()
     {
-        $Learning = QueryBuilder::for(Learning::class)->orderBy('id', 'desc')->get();
-        return view('admin.learning.view-learning', compact('Learning'));
+        $learning = QueryBuilder::for(Learning::class)->orderBy('id', 'desc')->get();
+        return view('admin.learning.view-learning', compact('learning'));
     }
 
     /**
@@ -28,9 +28,9 @@ class LearningController extends Controller
      */
     public function create()
     {
-        $Course   = QueryBuilder::for(Course::class)->get();
-        $Learning = QueryBuilder::for(Learning::class)->get();
-        return view('admin.learning.learning', compact('Course','Learning'));
+        $course   = QueryBuilder::for(Course::class)->get();
+        $learning = QueryBuilder::for(Learning::class)->get();
+        return view('admin.learning.learning', compact('course','learning'));
     }
 
     /**
@@ -41,10 +41,10 @@ class LearningController extends Controller
      */
     public function store(LearningRequest $request)
     {
-        $Learning               = new Learning;
-        $Learning->course_id    = $request->course_id;
-        $Learning->name         = $request->name;
-        $Learning->save();
+        $learning               = new Learning;
+        $learning->course_id    = $request->course_id;
+        $learning->name         = $request->name;
+        $learning->save();
         return redirect()->back()->with('success', 'Learning successfully stored');
     }
 
@@ -67,9 +67,9 @@ class LearningController extends Controller
      */
     public function edit($id)
     {
-        $Course   = QueryBuilder::for(Course::class)->get();
-        $Learning = QueryBuilder::for(Learning::class)->find($id);
-        return view('admin.learning.edit-learning', compact('Learning','Course'));
+        $course   = QueryBuilder::for(Course::class)->get();
+        $learning = QueryBuilder::for(Learning::class)->find($id);
+        return view('admin.learning.edit-learning', compact('learning','course'));
     }
 
     /**
@@ -81,10 +81,10 @@ class LearningController extends Controller
      */
     public function update(LearningRequest $request, $id)
     {
-        $Learning               =  Learning::find($id);
-        $Learning->course_id    = $request->course_id;
-        $Learning->name         = $request->name;
-        $Learning->save();
+        $learning               =  Learning::find($id);
+        $learning->course_id    = $request->course_id;
+        $learning->name         = $request->name;
+        $learning->save();
         return redirect()->back()->with('success', 'Learning successfully Updated');
     }
 

@@ -33,27 +33,27 @@
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">System Name</label>
                                 <div class="col-sm-10">
-                                    <input value="{{$Settings == null? " ":$Settings->name}}" name="name" type="text" class="form-control">
+                                    <input value="{{$settings == null? " ":$settings->name}}" name="name" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="logo" class="col-sm-2 col-form-label">Logo</label>
                                 <div class="col-sm-10">
-                                <input name="logo"  value="{{$Settings == null? " ":$Settings->logo}}" class="form-control" type="file" id="formFile">
+                                <input name="logo"  value="{{$settings == null? " ":$settings->logo}}" class="form-control" type="file" id="formFile">
                                 </div>
-                                @if ($Settings->logo != null)
-                                <img class="m-3 admin-image" src="{{asset('assets/images/'.$Settings->logo)}}" alt="">
+                                @if ($settings->logo != null)
+                                <img class="m-3 admin-image" src="{{asset('assets/images/'.$settings->logo)}}" alt="">
                                 @endif
                             </div>
 
                             <div class="row mb-3">
                                 <label for="logo" class="col-sm-2 col-form-label">Home Background Image</label>
                                 <div class="col-sm-10">
-                                <input name="background_image"  value="{{$Settings == null? " ":$Settings->background_image}}" class="form-control" type="file" id="formFile">
+                                <input name="background_image"  value="{{$settings == null? " ":$settings->background_image}}" class="form-control" type="file" id="formFile">
                                 </div>
-                                @if ($Settings != null)
-                                @if ($Settings->background_image != null)                                
-                                <img class="m-3 admin-image" src="{{asset('assets/images/'.$Settings->background_image)}}" alt="">
+                                @if ($settings != null)
+                                @if ($settings->background_image != null)                                
+                                <img class="m-3 admin-image" src="{{asset('assets/images/'.$settings->background_image)}}" alt="">
                                 @endif
                                 @endif
                             </div>
@@ -61,11 +61,11 @@
                             <div class="row mb-3">
                               <label for="logo" class="col-sm-2 col-form-label">Home Background Centered Image</label>
                               <div class="col-sm-10">
-                              <input name="background_centered_image"  value="{{$Settings == null? " ":$Settings->background_centered_image}}" class="form-control" type="file" id="formFile">
+                              <input name="background_centered_image"  value="{{$settings == null? " ":$settings->background_centered_image}}" class="form-control" type="file" id="formFile">
                               </div>
-                              @if ($Settings != null)
-                              @if ($Settings->background_centered_image != null)                                
-                              <img class="m-3 admin-image" src="{{asset('assets/images/'.$Settings->background_centered_image)}}" alt="">
+                              @if ($settings != null)
+                              @if ($settings->background_centered_image != null)                                
+                              <img class="m-3 admin-image" src="{{asset('assets/images/'.$settings->background_centered_image)}}" alt="">
                               @endif
                               @endif
                           </div>
@@ -73,31 +73,31 @@
                             <div class="row mb-3">
                               <label for="logo" class="col-sm-2 col-form-label">Login & Registration Background Image</label>
                               <div class="col-sm-10">
-                              <input name="login_background_image"  value="{{$Settings == null? " ":$Settings->login_background_image}}" class="form-control" type="file" id="formFile">
+                              <input name="login_background_image"  value="{{$settings == null? " ":$settings->login_background_image}}" class="form-control" type="file" id="formFile">
                               </div>
-                              @if ($Settings != null)
-                              @if ($Settings->login_background_image != null)                                
-                              <img class="m-3 admin-image" src="{{asset('assets/images/'.$Settings->login_background_image)}}" alt="">
+                              @if ($settings != null)
+                              @if ($settings->login_background_image != null)                                
+                              <img class="m-3 admin-image" src="{{asset('assets/images/'.$settings->login_background_image)}}" alt="">
                               @endif
                              @endif
                             </div>
                             <div class="row mb-3">
                               <label for="background_title" class="col-sm-2 col-form-label">Home Background Header</label>
                               <div class="col-sm-10">
-                                  <input value="{{$Settings == null? " ":$Settings->background_header}}" name="background_header" type="text" class="form-control">
+                                  <input value="{{$settings == null? " ":$settings->background_header}}" name="background_header" type="text" class="form-control">
                               </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="background_title" class="col-sm-2 col-form-label">Home Background Title</label>
                                 <div class="col-sm-10">
-                                    <input value="{{$Settings == null? " ":$Settings->background_title}}" name="background_title" type="text" class="form-control">
+                                    <input value="{{$settings == null? " ":$settings->background_title}}" name="background_title" type="text" class="form-control">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="background_description" class="col-sm-2 col-form-label"> Home Background description</label>
                                 <div class="col-sm-10">
-                                  <textarea name="background_description" class="form-control" style="height: 100px">{{$Settings == null? " ":$Settings->background_description}}</textarea>
+                                  <textarea name="background_description" class="form-control" style="height: 100px">{{$settings == null? " ":$settings->background_description}}</textarea>
                                 </div>
                               </div>
                         <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Update</button>

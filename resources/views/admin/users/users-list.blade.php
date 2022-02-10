@@ -42,7 +42,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @forelse ($User as $item)
+                      @forelse ($user as $item)
         
                       <tr>
                         <th scope="row">{{$item->id}}</th>

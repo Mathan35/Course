@@ -9,80 +9,80 @@ use Livewire\Component;
 
 class AllCourse extends Component
 {
-    public $CoursePrice;
-    public $Category;
-    public $Technology;
-    public $Course;
+    public $coursePrice;
+    public $category;
+    public $technology;
+    public $course;
 
-    public $GetCategory;
-    public $GetTechnology;
-    public $GetPrice;
+    public $getCategory;
+    public $getTechnology;
+    public $getPrice;
 
-    public $FindCategory;
-    public $FindTechnology;
+    public $findCategory;
+    public $findTechnology;
 
     public function render()
     {
-        if($this->GetCategory != 0 && $this->GetTechnology == 0 && $this->GetPrice == 0)
+        if($this->getCategory != 0 && $this->getTechnology == 0 && $this->getPrice == 0)
         {
-            $this->FindCategory = Category::find($this->GetCategory);
-            $this->Course       = $this->FindCategory->Course()->get();
+            $this->findCategory = Category::find($this->getCategory);
+            $this->course       = $this->findCategory->course()->get();
         }
-        elseif($this->GetCategory == 0 && $this->GetTechnology != 0 && $this->GetPrice == 0)
+        elseif($this->getCategory == 0 && $this->getTechnology != 0 && $this->getPrice == 0)
         {
-            $this->FindTechnology = Technology::find($this->GetTechnology);
-            $this->Course         = $this->FindTechnology->Course()->get();
+            $this->findTechnology = Technology::find($this->getTechnology);
+            $this->course         = $this->findTechnology->course()->get();
         }
-        elseif($this->GetCategory == 0 && $this->GetTechnology == 0 && $this->GetPrice != 0)
+        elseif($this->getCategory == 0 && $this->getTechnology == 0 && $this->getPrice != 0)
         {
-            $this->Course  = QueryBuilder::for(Course::class)->where('id',$this->GetPrice)->get();
+            $this->course  = QueryBuilder::for(Course::class)->where('id',$this->getPrice)->get();
         }
-        elseif($this->GetCategory != 0 && $this->GetTechnology != 0 && $this->GetPrice == 0)
+        elseif($this->getCategory != 0 && $this->getTechnology != 0 && $this->getPrice == 0)
         {  
-            $Category     = $this->GetCategory($this->GetCategory);
-            $Technology   = $this->GetTechnology($this->GetTechnology);
-            $this->Course = Course::whereIn('id',array_intersect($Category,$Technology))->get();
+            $category     = $this->getCategory($this->getCategory);
+            $technology   = $this->GetTechnology($this->getTechnology);
+            $this->course = Course::whereIn('id',array_intersect($category,$technology))->get();
         }
-        elseif($this->GetCategory == 0 && $this->GetTechnology != 0 && $this->GetPrice != 0)
+        elseif($this->getCategory == 0 && $this->getTechnology != 0 && $this->getPrice != 0)
          {
-            $Category     = $this->GetTechnology($this->GetTechnology);
-            $Technology   = QueryBuilder::for(Course::class)->where('id',$this->GetPrice)->get()->pluck('id')->toArray();
-            $this->Course = Course::whereIn('id',array_intersect($Category,$Technology))->get();
+            $category     = $this->GetTechnology($this->getTechnology);
+            $technology   = QueryBuilder::for(Course::class)->where('id',$this->getPrice)->get()->pluck('id')->toArray();
+            $this->course = Course::whereIn('id',array_intersect($category,$technology))->get();
          }
-         elseif($this->GetCategory != 0 && $this->GetTechnology == 0 && $this->GetPrice != 0)
+         elseif($this->getCategory != 0 && $this->getTechnology == 0 && $this->getPrice != 0)
          {
-            $Category      = $this->GetCategory($this->GetCategory);
-            $Technology    = QueryBuilder::for(Course::class)->where('id',$this->GetPrice)->get()->pluck('id')->toArray();
-            $this->Course = Course::whereIn('id',array_intersect($Category,$Technology))->get();
+            $category      = $this->getCategory($this->getCategory);
+            $technology    = QueryBuilder::for(Course::class)->where('id',$this->getPrice)->get()->pluck('id')->toArray();
+            $this->Course = Course::whereIn('id',array_intersect($category,$technology))->get();
          }
-         elseif($this->GetCategory != 0 && $this->GetTechnology != 0 && $this->GetPrice != 0)
+         elseif($this->getCategory != 0 && $this->getTechnology != 0 && $this->getPrice != 0)
          {
-            $Category     = $this->GetCategory($this->GetCategory);
-            $Technology   = $this->GetTechnology($this->GetTechnology);
-            $Course       = QueryBuilder::for(Course::class)->where('id',$this->GetPrice)->get()->pluck('id')->toArray();
-            $this->Course = Course::whereIn('id',array_intersect(array_intersect($Category,$Technology),$Course))->get();
+            $category     = $this->getCategory($this->getCategory);
+            $technology   = $this->getTechnology($this->getTechnology);
+            $course       = QueryBuilder::for(Course::class)->where('id',$this->getPrice)->get()->pluck('id')->toArray();
+            $this->course = Course::whereIn('id',array_intersect(array_intersect($category,$technology),$course))->get();
          }
         else
         {
-            $this->Course      = QueryBuilder::for(Course::class)->get();
+            $this->course      = QueryBuilder::for(Course::class)->get();
         }
 
-        $this->CoursePrice = QueryBuilder::for(Course::class)->select(['id','price'])->get();
-        $this->Category    = QueryBuilder::for(Category::class)->get();
-        $this->Technology  = QueryBuilder::for(Technology::class)->get();
+        $this->coursePrice = QueryBuilder::for(Course::class)->select(['id','price'])->get();
+        $this->category    = QueryBuilder::for(Category::class)->get();
+        $this->technology  = QueryBuilder::for(Technology::class)->get();
 
         return view('livewire.all-course');
     }
 
-    public function GetCategory($Category){
-        $this->FindCategory = Category::find($this->GetCategory);
-        $CategoryId         = $this->FindCategory->Course()->get()->pluck('id')->toArray();
-        return $CategoryId;
+    public function getCategory($category){
+        $this->findCategory = Category::find($category);
+        $categoryId         = $this->findCategory->Course()->get()->pluck('id')->toArray();
+        return $categoryId;
     }
-    public function GetTechnology($Technology){
-        $this->FindTechnology = Technology::find($Technology);
-        $TechnologyId         = $this->FindTechnology->Course()->get()->pluck('id')->toArray();
-        return $TechnologyId;
+    public function getTechnology($technology){
+        $this->findTechnology = Technology::find($technology);
+        $technologyId         = $this->findTechnology->Course()->get()->pluck('id')->toArray();
+        return $technologyId;
     }
 
 

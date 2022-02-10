@@ -30,18 +30,18 @@
 
                   <h5 class="card-title">Edit Course</h5>
 
-                    <form action="{{route('learning.update', $Learning->id)}}" method="post" enctype = "multipart/form-data">
+                    <form action="{{route('learning.update', $learning->id)}}" method="post" enctype = "multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <label for="Name">Course</label>
                         <select class="form-select" name="course_id" aria-label="Default select example">
-                            @foreach ($Course as $item)
-                            <option {{$item->id == $Learning->course->id? 'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
+                            @foreach ($course as $item)
+                            <option {{$item->id == $learning->course->id? 'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                         <div class="form-group">
                             <label for="Name">Name</label>
-                            <input type="text" name = "name" value="{{$Learning->name}}" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" name = "name" value="{{$learning->name}}" class="form-control" id="" aria-describedby="Name" >
                         </div>
                     
                         <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Submit</button>

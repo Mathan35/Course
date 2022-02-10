@@ -33,7 +33,7 @@
                         @csrf
                         <label for="Name">Course</label>
                         <select class="form-select" name="course_id" aria-label="Default select example">
-                            @foreach ($Course as $item)
+                            @foreach ($course as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>

@@ -52,7 +52,7 @@
 
                     <div class="form-group mt-4">
                         <select class="form-control text-dark" aria-label=" w-full" name="country_id">
-                            @foreach ($Country as $item)
+                            @foreach ($country as $item)
                             <option class="text-dark" value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>

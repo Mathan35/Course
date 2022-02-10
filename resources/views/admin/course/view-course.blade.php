@@ -42,7 +42,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Course as $item)
+                        @foreach ($course as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>

@@ -31,17 +31,17 @@
                   
                   <h5 class="card-title">Update payment Details</h5>
 
-                  <h5>Course Name :- <span class="text-primary">{{$Enquiry->Course->name}}</span></h5>
-                  <h5>Course Name :- <span class="text-primary">{{$Enquiry->Course->price}}</span></h5>
-                  <h5>Paid Amount :- <span class="text-success">{{$Enquiry->Payment->sum('amount')}}</span></h5>
-                  <h5>Remaining Amount :- <span class="text-danger">{{$Enquiry->Course->price - $Enquiry->Payment->sum('amount')}}</span></h5>
+                  <h5>Course Name :- <span class="text-primary">{{$enquiry->course->name}}</span></h5>
+                  <h5>Course Name :- <span class="text-primary">{{$enquiry->course->price}}</span></h5>
+                  <h5>Paid Amount :- <span class="text-success">{{$enquiry->payment->sum('amount')}}</span></h5>
+                  <h5>Remaining Amount :- <span class="text-danger">{{$enquiry->course->price - $enquiry->payment->sum('amount')}}</span></h5>
                   
 
                
                   <form action="{{route('store-payment',)}}" method="post">
                     @csrf
-                    <input type="hidden" value="{{$Enquiry->id}}" name="enquiry_id">
-                    @if ($Enquiry->batch_id == null)           
+                    <input type="hidden" value="{{$enquiry->id}}" name="enquiry_id">
+                    @if ($enquiry->batch_id == null)           
                       <label for="payment" class="mt-2">Batch</label>
                       <select class="form-select" name="batch_id" aria-label="Default select example">
                         @foreach ($Batch as $item)

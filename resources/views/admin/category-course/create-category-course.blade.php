@@ -35,7 +35,7 @@
 
                         <label class="mt-3 text-primary" for="">Select Course</label>
                         <div class = "mt-3 mb-3">
-                            @foreach ($Course as $item)
+                            @foreach ($course as $item)
                             <div class="form-check mt-3">
                                 <input class="form-check-input" type="checkbox" name="course_id[]" value="{{$item->id}}" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">{{$item->name}}</label>

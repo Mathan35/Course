@@ -23,7 +23,7 @@ class Payment extends Model
         'tax_number',
     ];
 
-    public function Enquiry()
+    public function enquiry()
     {
         return $this->hasOne(Enquiry::class, 'enquiry_id', 'enquiry_id');
     }

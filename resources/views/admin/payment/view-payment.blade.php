@@ -53,7 +53,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($Payment as $item)
+                      @foreach ($payment as $item)
         
                       <tr>
                         <th scope="row">{{$item->id}}</th>

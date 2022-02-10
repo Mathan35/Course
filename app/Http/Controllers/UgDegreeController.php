@@ -43,43 +43,43 @@ class UgDegreeController extends Controller
      */
     public function store(EducationRequest $request)
     {
-        $Degree          = new Degree;
-        $Degree->name    = $request->degree;
+        $degree          = new Degree;
+        $degree->name    = $request->degree;
         if($request->file('degree_image')){
-        $DegreeImage     = $request->file('degree_image')->getClientOriginalName();
-        $request->file('degree_image')->move(public_path('assets/images/'),$DegreeImage);
-        $Degree->image   = $DegreeImage;
+        $degreeImage     = $request->file('degree_image')->getClientOriginalName();
+        $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
+        $degree->image   = $degreeImage;
         }
-        $Degree->save();
+        $degree->save();
 
-        $Specializtion        = new Specializtion;
-        $Specializtion->name  = $request->specializtion;
+        $specializtion        = new Specializtion;
+        $specializtion->name  = $request->specializtion;
         if($request->file('specialization_image')){
-        $SpecializtionImage   = $request->file('specialization_image')->getClientOriginalName();
-        $request->file('specialization_image')->move(public_path('assets/images/'),$SpecializtionImage);
-        $Specializtion->image = $SpecializtionImage;
+        $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
+        $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
+        $specializtion->image = $specializtionImage;
         }
-        $Specializtion->save();
+        $specializtion->save();
 
 
-        $College           = new College;
-        $College->name     = $request->college;
-        $College->location = $request->location;
+        $college           = new College;
+        $college->name     = $request->college;
+        $college->location = $request->location;
         if($request->file('college_image')){
-        $CollegeImage      = $request->file('college_image')->getClientOriginalName();
-        $request->file('college_image')->move(public_path('assets/images/'),$CollegeImage);
-        $College->image    = $CollegeImage;
+        $collegeImage      = $request->file('college_image')->getClientOriginalName();
+        $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
+        $college->image    = $collegeImage;
         }
-        $College->save();
+        $college->save();
 
-        $UgDegree                   = new UserUgDegree;
-        $UgDegree->user_id          = auth()->user()->id;
-        $UgDegree->passed_out       = $request->passed_out;
-        $UgDegree->studying_year    = $request->studying_year;
-        $UgDegree->specializtion_id = $Specializtion->id;
-        $UgDegree->college_id       = $College->id;
-        $UgDegree->degree_id        = $Degree->id;
-        $UgDegree->save();
+        $ugDegree                   = new UserUgDegree;
+        $ugDegree->user_id          = auth()->user()->id;
+        $ugDegree->passed_out       = $request->passed_out;
+        $ugDegree->studying_year    = $request->studying_year;
+        $ugDegree->specializtion_id = $specializtion->id;
+        $ugDegree->college_id       = $college->id;
+        $ugDegree->degree_id        = $degree->id;
+        $ugDegree->save();
         return redirect()->back()->with('success', 'Ug Degree successfully Updated');
     }
 
@@ -102,8 +102,8 @@ class UgDegreeController extends Controller
      */
     public function edit($id)
     {
-        $GetDegree = UserUgDegree::find($id);
-        return view('edit-ug-degree', compact('GetDegree'));
+        $getDegree = UserUgDegree::find($id);
+        return view('edit-ug-degree', compact('getDegree'));
     }
 
     /**
@@ -115,43 +115,43 @@ class UgDegreeController extends Controller
      */
     public function update(EducationRequest $request, $id)
     {
-        $Degree          = Degree::find($request->degree_id);
-        $Degree->name    = $request->degree;
+        $degree          = Degree::find($request->degree_id);
+        $degree->name    = $request->degree;
         if($request->file('degree_image')){
-        $DegreeImage     = $request->file('degree_image')->getClientOriginalName();
-        $request->file('degree_image')->move(public_path('assets/images/'),$DegreeImage);
-        $Degree->image   = $DegreeImage;
+        $degreeImage     = $request->file('degree_image')->getClientOriginalName();
+        $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
+        $degree->image   = $degreeImage;
         }
-        $Degree->save();
+        $degree->save();
 
-        $Specializtion        = Specializtion::find($request->specialization_id);
-        $Specializtion->name  = $request->specializtion;
+        $specializtion        = Specializtion::find($request->specialization_id);
+        $specializtion->name  = $request->specializtion;
         if($request->file('specialization_image')){
-        $SpecializtionImage   = $request->file('specialization_image')->getClientOriginalName();
-        $request->file('specialization_image')->move(public_path('assets/images/'),$SpecializtionImage);
-        $Specializtion->image = $SpecializtionImage;
+        $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
+        $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
+        $specializtion->image = $specializtionImage;
         }
-        $Specializtion->save();
+        $specializtion->save();
 
 
-        $College           = College::find($request->college_id);
-        $College->name     = $request->college;
-        $College->location = $request->location;
+        $college           = College::find($request->college_id);
+        $college->name     = $request->college;
+        $college->location = $request->location;
         if($request->file('college_image')){
-        $CollegeImage      = $request->file('college_image')->getClientOriginalName();
-        $request->file('college_image')->move(public_path('assets/images/'),$CollegeImage);
-        $College->image    = $CollegeImage;
+        $collegeImage      = $request->file('college_image')->getClientOriginalName();
+        $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
+        $college->image    = $collegeImage;
         }
-        $College->save();
+        $college->save();
 
-        $UgDegree                   = UserUgDegree::find($id);
-        $UgDegree->user_id          = auth()->user()->id;
-        $UgDegree->passed_out       = $request->passed_out;
-        $UgDegree->studying_year    = $request->studying_year;
-        $UgDegree->specializtion_id = $Specializtion->id;
-        $UgDegree->college_id       = $College->id;
-        $UgDegree->degree_id        = $Degree->id;
-        $UgDegree->save();
+        $ugDegree                   = UserUgDegree::find($id);
+        $ugDegree->user_id          = auth()->user()->id;
+        $ugDegree->passed_out       = $request->passed_out;
+        $ugDegree->studying_year    = $request->studying_year;
+        $ugDegree->specializtion_id = $specializtion->id;
+        $ugDegree->college_id       = $college->id;
+        $ugDegree->degree_id        = $degree->id;
+        $ugDegree->save();
         return redirect()->back()->with('success', 'Ug Degree successfully Updated');
     }
 

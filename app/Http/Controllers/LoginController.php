@@ -15,17 +15,17 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function Login(Request $request)
+    public function login(Request $request)
     {
         $credentials = $request->validate([
             'email'    => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        $User = QueryBuilder::for(User::class)->where('email',$request->email)->first();
+        $user = QueryBuilder::for(User::class)->where('email',$request->email)->first();
 
         //checking user status
-        if($User && $User->status == "0"){
+        if($user && $user->status == "0"){
             abort(401);
         }
 
@@ -33,9 +33,9 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            $DateTime             = User::find(auth()->user()->id);
-            $DateTime->last_login = Carbon::now()->toDateTimeString();
-            $DateTime->save();
+            $dateTime             = User::find(auth()->user()->id);
+            $dateTime->last_login = Carbon::now()->toDateTimeString();
+            $dateTime->save();
 
             if(auth()->user()->role != "0"){
                 return redirect()->intended('admin/admin-dashboard');

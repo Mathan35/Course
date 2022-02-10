@@ -40,7 +40,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Batch as $item)
+                        @foreach ($batch as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>

@@ -39,11 +39,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @forelse ($Enquiry as $value)   
+                        @forelse ($enquiry as $value)   
                             @foreach ($value->Payment as $item)        
                                 <tr>
                                     <th scope="row">{{$item->enquiry_id}}</th>
-                                    <td scope="row">{{$value->Course->name}}</td>
+                                    <td scope="row">{{$value->course->name}}</td>
                                     <td scope="row">{{$item->payment_method}}</td>
                                     <td scope="row">{{$item->payment_mode}}</td>
                                     <td scope="row">{{$item->reference_number}}</td>

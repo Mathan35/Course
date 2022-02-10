@@ -30,33 +30,33 @@
                   
                   <h5 class="card-title">View Users Details</h5>
 
-                  <h2 class="h6 mt-2 text-primary"> User Name :- <span class="text-dark">{{$User->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Email :- <span class="text-dark">{{$User->email}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Date Of Birth :- <span class="text-dark">{{$User->dob}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Status :- <span class="text-success">{{$User->status == "0"? "In-Active":"Active"}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> User Name :- <span class="text-dark">{{$user->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Email :- <span class="text-dark">{{$user->email}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Date Of Birth :- <span class="text-dark">{{$user->dob}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Status :- <span class="text-success">{{$user->status == "0"? "In-Active":"Active"}} </span></h2>
 
                   <h5 class="card-title">Ug Degree Details</h5>
-                  @if (@empty($User->UserUgDegree->id ))
+                  @if (@empty($user->userUgDegree->id ))
                   <p class="text-danger">data not found</p>
                   @else
-                  <h2 class="h6 mt-2 text-primary"> College Name :- <span class="text-dark">{{$User->UserUgDegree->college->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Degree :- <span class="text-dark">{{$User->UserUgDegree->Degree->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$User->UserUgDegree->specialization->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Studying Year  :- <span class="text-dark">{{$User->UserUgDegree->studying_year}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Passed Out  :- <span class="text-dark">{{$User->UserUgDegree->passed_out}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$User->UserUgDegree->specialization->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> College Name :- <span class="text-dark">{{$user->userUgDegree->college->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Degree :- <span class="text-dark">{{$user->userUgDegree->degree->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$user->userUgDegree->specialization->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Studying Year  :- <span class="text-dark">{{$user->userUgDegree->studying_year}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Passed Out  :- <span class="text-dark">{{$user->userUgDegree->passed_out}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$user->userUgDegree->specialization->name}} </span></h2>
                   @endif
 
                   <h5 class="card-title">Pg Degree Details</h5>
-                  @if (@empty($User->UserPgDegree->id))
+                  @if (@empty($user->userPgDegree->id))
                   <p class="text-danger">data not found</p>
                   @else
-                  <h2 class="h6 mt-2 text-primary"> College Name :- <span class="text-dark">{{$User->UserPgDegree->college->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Degree :- <span class="text-dark">{{$User->UserPgDegree->Degree->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$User->UserPgDegree->specialization->name}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Studying Year  :- <span class="text-dark">{{$User->UserPgDegree->studying_year}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Passed Out  :- <span class="text-dark">{{$User->UserPgDegree->passed_out}} </span></h2>
-                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$User->UserPgDegree->specialization->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> College Name :- <span class="text-dark">{{$user->userPgDegree->college->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Degree :- <span class="text-dark">{{$user->userPgDegree->degree->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$user->userPgDegree->specialization->name}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Studying Year  :- <span class="text-dark">{{$user->userPgDegree->studying_year}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Passed Out  :- <span class="text-dark">{{$user->userPgDegree->passed_out}} </span></h2>
+                  <h2 class="h6 mt-2 text-primary"> Specialization  :- <span class="text-dark">{{$user->userPgDegree->specialization->name}} </span></h2>
                   @endif
                  
                   <h5 class="card-title">Ug Degree Details</h5>
@@ -75,10 +75,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @forelse ($User->Enquiry as $item)
+                      @forelse ($user->enquiry as $item)
                       <tr>
                             <th>{{$item->enquiry_id}}</th>
-                            <td>{{$item->Course->name}}</td>
+                            <td>{{$item->course->name}}</td>
                             <td>
 
                               @if ($item->status == "1")

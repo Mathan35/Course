@@ -20,8 +20,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $Technology = QueryBuilder::for(Technology::class)->get();
-        return view('admin.technology.view-technology', compact('Technology'));
+        $technology = QueryBuilder::for(Technology::class)->get();
+        return view('admin.technology.view-technology', compact('technology'));
     }
 
     /**
@@ -71,8 +71,8 @@ class TechnologyController extends Controller
      */
     public function edit($id)
     {
-        $Technology = QueryBuilder::for(Technology::class)->find($id);
-        return view('admin.technology.edit-technology', compact('Technology'));
+        $technology = QueryBuilder::for(Technology::class)->find($id);
+        return view('admin.technology.edit-technology', compact('technology'));
     }
 
     /**

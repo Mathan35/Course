@@ -40,17 +40,16 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @forelse ($Enquiry as $item)
+                      @forelse ($enquiry as $item)
         
                       <tr>
                         <th scope="row">{{$item->enquiry_id}}</th>
-                        <td scope="row">{{$item->User->name}}</td>
-                        <td>{{$item->User->email}}</td>
-                        <td>{{$item->Course->name}}</td>
+                        <td scope="row">{{$item->user->name}}</td>
+                        <td>{{$item->user->email}}</td>
+                        <td>{{$item->course->name}}</td>
                       </tr>
                                   
                       @empty
-                        <p class="text-danger">No Payment Made by this user</p>
                       @endforelse
 
                     </tbody>

@@ -39,12 +39,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Category as $item)
+                        @foreach ($category as $item)
                         <tr>
                         <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>
                             <td>
-                              @foreach ($item->Course as $value)
+                              @foreach ($item->course as $value)
                               {{$value->name}},
                               @endforeach
                             </td>

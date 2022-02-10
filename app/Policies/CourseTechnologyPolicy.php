@@ -26,6 +26,6 @@ class CourseTechnologyPolicy
         return $this->getPermissions($permission = "view-course-technology");
     }
     public function EditCourseTechnology(){
-        return $this->getPermissions($permission = "Edit-course-technology");
+        return $this->getPermissions($permission = "edit-course-technology");
     }
 }

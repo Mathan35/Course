@@ -29,15 +29,15 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">Edit Category Course</h5>
-                    <form action="{{route('category-course.update',$Category->id)}}" method="post" >
+                    <form action="{{route('category-course.update',$category->id)}}" method="post" >
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <label for="">Category Name</label>
-                        <input class="form-control" type="text" value="{{$Category->name}}" name="name" id="flexCheckDefault">
+                        <input class="form-control" type="text" value="{{$category->name}}" name="name" id="flexCheckDefault">
 
                         <label for="">Technology</label>
                         <div class = "mt-3 mb-3">
-                            @foreach ($Course as $value)
+                            @foreach ($course as $value)
                             @if(in_array($value->id, $checkedCourse))
                             <div class="form-check mt-3">
                                 <input class="form-check-input" type="checkbox" name="course_id[]" value="{{$value->id}}" checked id="flexCheckDefault">

@@ -30,37 +30,37 @@
 
                   <h5 class="card-title">Edit Course</h5>
 
-                    <form action="{{route('course.update',$Course->id)}}" method="post" enctype = "multipart/form-data">
+                    <form action="{{route('course.update',$course->id)}}" method="post" enctype = "multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="Name">Name</label>
-                            <input type="text" value="{{$Course->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" value="{{$course->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                             <label for="Name">Price</label>
-                            <input type="text" value="{{$Course->price}}" name = "price" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" value="{{$course->price}}" name = "price" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                           <label for="Name">Actual Price</label>
-                          <input type="text" value="{{$Course->actual_price}}" name = "actual_price" class="form-control" id="" aria-describedby="Name" >
+                          <input type="text" value="{{$course->actual_price}}" name = "actual_price" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                             <label for="Name">Video URL</label>
-                            <input type="text" value="{{$Course->video_url}}" name = "video_url" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" value="{{$course->video_url}}" name = "video_url" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                             <label for="image">Image</label>
-                            <input type="file" value="{{$Course->image}}" name = "image" class="form-control" id="" aria-describedby="image" >
+                            <input type="file" value="{{$course->image}}" name = "image" class="form-control" id="" aria-describedby="image" >
                         </div>
-                        <img class="mt-3 mb-3" width="100" height="100" src="{{asset('assets/images/'.$Course->image)}}" alt="">
+                        <img class="mt-3 mb-3" width="100" height="100" src="{{asset('assets/images/'.$course->image)}}" alt="">
                         <div class="form-group">
                             <label for="description">Short Description</label>
-                            <textarea class="form-control" name = "short_description"  id="exampleFormControlTextarea1" rows="3">{{$Course->short_description}}</textarea>
+                            <textarea class="form-control" name = "short_description"  id="exampleFormControlTextarea1" rows="3">{{$course->short_description}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="description">Detailed Description</label>
-                            <textarea class="form-control" name = "detailed_description"  id="exampleFormControlTextarea1" rows="3">{{$Course->detailed_description}}</textarea>
+                            <textarea class="form-control" name = "detailed_description"  id="exampleFormControlTextarea1" rows="3">{{$course->detailed_description}}</textarea>
                         </div>
                         <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Update</button>
                     </form>

@@ -39,12 +39,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($CheckedCourse as $item)
+                        @foreach ($checkedCourse as $item)
                         <tr>
                         <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>
                             <td>
-                              @foreach ($item->Technology as $value)
+                              @foreach ($item->technology as $value)
                               {{$value->name}},
                               @endforeach
                             </td>

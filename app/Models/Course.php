@@ -26,24 +26,24 @@ class Course extends Model
     ];
 
      //for roles to permissio
-     public function Technology()
+     public function technology()
      {
          return $this->belongsToMany(Technology::class, 'course_technologies')->withTimestamps();
      }
 
      //for roles to permissio
-     public function Learning()
+     public function learning()
      {
          return $this->HasMany(Learning::class);
      }
 
      //for roles to permissio
-     public function Enquiry()
+     public function enquiry()
      {
          return $this->HasMany(Enquiry::class);
      }
       //for roles to permissio
-      public function CourseTitle()
+      public function courseTitle()
       {
           return $this->HasMany(CourseTitle::class);
       }

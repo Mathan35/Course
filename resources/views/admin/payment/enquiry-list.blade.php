@@ -48,12 +48,12 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($Enquiry as $item)
+                                  @foreach ($enquiry as $item)
                     
                                   <tr>
                                     <th scope="row">{{$item->enquiry_id}}</th>
-                                    <td scope="row">{{$item->User->name}}</td>
-                                    <td>{{$item->Course->name}}</td>
+                                    <td scope="row">{{$item->user->name}}</td>
+                                    <td>{{$item->course->name}}</td>
                                     <td>{{$item->date}} , {{$item->time}}</td>
                                     <td>
                                       @can('ChangeEnquiryStatus','App\Models\Enquiry')

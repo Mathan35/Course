@@ -64,24 +64,24 @@ class User extends Authenticatable
     ];
 
         //for enquiry to course
-        public function Enquiry()
+        public function enquiry()
         {
             return $this->hasMany(Enquiry::class);
         }
 
         //for enquiry to course
-        public function UserUgDegree()
+        public function userUgDegree()
         {
             return $this->hasOne(UserUgDegree::class);
         }
 
-        public function Role()
+        public function role()
         {
             return $this->hasOne(Role::class, "id", "role");
         }
 
         //for enquiry to course
-        public function UserPgDegree()
+        public function userPgDegree()
         {
             return $this->hasOne(UserPgDegree::class);
         }

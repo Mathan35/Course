@@ -123,7 +123,7 @@
                                 <div class="banner-icon">
                                     <i class="icofont-search"></i>
                                 </div>
-                                <input name="course_name" id="course"  type="text" placeholder="Keywords of your course">
+                                <input name="course_name" id="course"  type="text" placeholder="Keywords of your course" autocomplete="off">
                                 <button type="submit">Search Course</button>
                             </form>
 							<div id="course_list"></div>                    
@@ -145,20 +145,20 @@
         <div class="all-shapes"></div>
         <div class="cbs-content-list d-none">
             <ul class="lab-ul">
-                @if ($Course->count() != 0)
-                <li class="ccl-shape shape-1"><a>{{$Course->count() == 0? "":$Course->count().' Courses'}} </a></li>
+                @if ($course->count() != 0)
+                <li class="ccl-shape shape-1"><a>{{$course->count() == 0? "":$course->count().' Courses'}} </a></li>
                 @endif
-                @if ($Technology->count() != 0)
-                <li class="ccl-shape shape-2"><a>{{$Technology->count() == 0? "":$Technology->count().' Technologies'}} </a></li>
+                @if ($technology->count() != 0)
+                <li class="ccl-shape shape-2"><a>{{$technology->count() == 0? "":$technology->count().' Technologies'}} </a></li>
                 @endif
-                @if ($User != 0)
-                <li class="ccl-shape shape-3"><a>{{$User == 0? "":$User.' Successful Students'}} </a></li>
+                @if ($user != 0)
+                <li class="ccl-shape shape-3"><a>{{$user == 0? "":$user.' Successful Students'}} </a></li>
                 @endif
-                @if ($Enquiry != 0)
-                <li class="ccl-shape shape-4"><a>{{$Enquiry == 0? "":$Enquiry.' Entrolls'}} </a></li>
+                @if ($enquiry != 0)
+                <li class="ccl-shape shape-4"><a>{{$enquiry == 0? "":$enquiry.' Entrolls'}} </a></li>
                 @endif
-                @if ($Category->count() != 0)
-                <li class="ccl-shape shape-5"><a>{{$Category->count() ==0? "":$Category->count().' Categories'}} </a></li>
+                @if ($category->count() != 0)
+                <li class="ccl-shape shape-5"><a>{{$category->count() ==0? "":$category->count().' Categories'}} </a></li>
                 @endif
             </ul>
         </div>

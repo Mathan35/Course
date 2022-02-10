@@ -29,25 +29,25 @@
                     <x-Message-component/>
 
                     <h5 class="card-title">Edit Admin User</h5>
-                        <form action="{{route('admin-user.update',$User->id)}}" method="post" enctype = "multipart/form-data">
+                        <form action="{{route('admin-user.update',$user->id)}}" method="post" enctype = "multipart/form-data">
                             <input type="hidden" name="_method" value="PUT">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="form-group">
                                 <label for="Name">User Name</label>
-                                <input type="text" value="{{$User->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
+                                <input type="text" value="{{$user->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
                             </div>
                             <div class="form-group">
                                 <label for="Name">Email</label>
-                                <input type="email"  value="{{$User->email}}" name = "email" class="form-control" id="" aria-describedby="email" >
+                                <input type="email"  value="{{$user->email}}" name = "email" class="form-control" id="" aria-describedby="email" >
                             </div>
                             <div class="form-group">
                                 <label for="Name">Password</label>
-                                <input type="password"  value="{{Hash::make($User->password)}}" name = "password" class="form-control" id="" aria-describedby="password" >
+                                <input type="password"  value="{{Hash::make($user->password)}}" name = "password" class="form-control" id="" aria-describedby="password" >
                             </div>
                             <label for="Name">Select Role</label>
                             <select class="form-select" name="role" aria-label="Default select example">
-                                @foreach ($Role as $item)                                
-                                <option value="{{$item->id}}" {{$User->Role->name == $item->name? "selected":" "}}>{{$item->name}}</option>
+                                @foreach ($role as $item)                                
+                                <option value="{{$item->id}}" {{$user->Role->name == $item->name? "selected":" "}}>{{$item->name}}</option>
                                 @endforeach
                             </select>
                             

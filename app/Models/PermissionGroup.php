@@ -19,7 +19,7 @@ class PermissionGroup extends Model
         'slug',
      
     ];
-    public function Permission()
+    public function permission()
     {
         return $this->hasMany(Permission::class,'permission_group_id','id');
     }

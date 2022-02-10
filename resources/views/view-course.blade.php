@@ -8,15 +8,15 @@
             <div class="row justify-content-center justify-content-lg-between align-items-center flex-row-reverse">
                 <div class="col-lg-7 col-12">
                     <div class="pageheader-thumb">
-                        <img src="{{asset('assets/images/'.$Course->image)}}" alt="rajibraj91" class="h-50 w-100 image-thumbnail">
+                        <img src="{{asset('assets/images/'.$course->image)}}" alt="rajibraj91" class="h-50 w-100 image-thumbnail">
                     </div>
                 </div>
                 <div class="col-lg-5 col-12">
                     <div class="pageheader-content">
                 
-                        <h2 class="phs-title">{{$Course->name}}</h2>
-                        <p class="phs-desc">{{$Course->short_description}}</p>
-                        <p class="phs-desc">{{$Course->detailed_description}}</p>
+                        <h2 class="phs-title">{{$course->name}}</h2>
+                        <p class="phs-desc">{{$course->short_description}}</p>
+                        <p class="phs-desc">{{$course->detailed_description}}</p>
                     </div>
                 </div>
             </div>
@@ -37,17 +37,17 @@
                             <div class="course-inner">
                                 <div class="course-content">
                                     <h3>Technology Details</h3>
-                                    @forelse ($Course->technology as $value )
+                                    @forelse ($course->technology as $value )
                                     <p>{{$value->name}}</p>
                                     @empty
                                     <p class="text-danger">Technology Not Found</p>
                                     @endforelse
 
                                     <h3>Course Overview</h3>
-                                    <p>{{$Course->detailed_description}}</p>
+                                    <p>{{$course->detailed_description}}</p>
                                     <h4>What You'll Learn in This Course:</h4>
                                     <ul class="lab-ul">
-                                        @foreach ($Course->Learning as $item)
+                                        @foreach ($course->learning as $item)
                                         <li><i class="icofont-tick-mark"></i>{{$item->name}}</li>
                                         @endforeach
                                     </ul>
@@ -65,7 +65,7 @@
                                     <div class="accordion-item">
                                         <!-- Accordion without outline borders -->
                                         <div class="accordion accordion-flush " id="accordionFlushExample">
-                                            @foreach ($Course->CourseTitle as $item)
+                                            @foreach ($course->courseTitle as $item)
                                         <div class="accordion-item mt-3">
                                             <h2 class="accordion-header" id="flush-headingOne">
                                             <button class="accordion-button collapsed text-light shadow-sm " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$item->id}}" aria-expanded="false" aria-controls="flush-collapse{{$item->id}}">
@@ -75,7 +75,7 @@
                                             <div id="flush-collapse{{$item->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body text-dark bg-white rounded shadow-sm"> 
                                                 <ol>
-                                                    @foreach ($item->CourseTitleDescription as $value)
+                                                    @foreach ($item->courseTitleDescription as $value)
                                                         <li>{{$value->description}}</li>
                                                     @endforeach
                                                 </ol>

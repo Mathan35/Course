@@ -25,7 +25,7 @@
                 <x-Message-component/> 
             
                 <h4 class="text-center mt-4">Enquiry Details</h4>
-                @forelse ($EnquiryCourses as $item)    
+                @forelse ($enquiryCourses as $item)    
                     <div class="row card m-4 mt-5">
                         <div class="col-md-12 m-2">
                             @if ($item->status == "0")

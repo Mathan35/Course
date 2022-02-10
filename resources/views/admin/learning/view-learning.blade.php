@@ -39,7 +39,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Learning as $item)
+                        @foreach ($learning as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>

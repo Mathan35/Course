@@ -16,8 +16,8 @@ class RolePermissionController extends Controller
      */
     public function index()
     {
-        $Role   = QueryBuilder::for(Role::class)->get();
-        return view('admin.role-permission.view-role-permission', compact('Role'));
+        $role   = QueryBuilder::for(Role::class)->get();
+        return view('admin.role-permission.view-role-permission', compact('role'));
     }
 
     /**
@@ -27,8 +27,8 @@ class RolePermissionController extends Controller
      */
     public function create()
     {
-        $PermissionGroup   = QueryBuilder::for(PermissionGroup::class)->get();
-        return view('admin.role-permission.create-role-permission', compact('PermissionGroup'));
+        $permissionGroup   = QueryBuilder::for(PermissionGroup::class)->get();
+        return view('admin.role-permission.create-role-permission', compact('permissionGroup'));
     }
 
     /**
@@ -39,12 +39,12 @@ class RolePermissionController extends Controller
      */
     public function store(RolePermissionRequest $request)
     {
-        $Role       = new Role;
-        $Role->name = $request->role;
-        $Role->save();
+        $role       = new Role;
+        $role->name = $request->role;
+        $role->save();
 
-        $Permission = $request->permission_id;
-        $Role->permissions()->attach($Permission);
+        $permission = $request->permission_id;
+        $role->permissions()->attach($permission);
         return redirect()->back()->with('success', 'Role Permission successfully stored');
     }
 
@@ -67,10 +67,10 @@ class RolePermissionController extends Controller
      */
     public function edit($id)
     {  
-        $Role              = QueryBuilder::for(Role::class)->find($id);
-        $PermissionGroup   = QueryBuilder::for(PermissionGroup::class)->get();
-        $checkedPermission = collect($Role->permissions)->pluck('id')->toArray();
-        return view('admin.role-permission.edit-role-permission', compact('Role','PermissionGroup','checkedPermission'));
+        $role              = QueryBuilder::for(Role::class)->find($id);
+        $permissionGroup   = QueryBuilder::for(PermissionGroup::class)->get();
+        $checkedPermission = collect($role->permissions)->pluck('id')->toArray();
+        return view('admin.role-permission.edit-role-permission', compact('role','permissionGroup','checkedPermission'));
 
     }
 
@@ -83,12 +83,12 @@ class RolePermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Role       = Role::find($id);
-        $Role->name = $request->role;
-        $Role->save();
+        $role       = Role::find($id);
+        $role->name = $request->role;
+        $role->save();
 
-        $Permission = $request->permission_id;
-        $Role->permissions()->sync($Permission);
+        $permission = $request->permission_id;
+        $role->permissions()->sync($permission);
         return redirect()->back()->with('success', 'Role Permission successfully updated');
     }
 

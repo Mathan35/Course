@@ -40,12 +40,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($User as $item)
+                        @foreach ($user as $item)
                         <tr>
                             <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
-                            <td>{{$item->Role->name}}</td>     
+                            <td>{{$item->role->name}}</td>     
                             <td>
                               <div class="d-flex">
                                 @can('EditAdminUser','App\Models\User')

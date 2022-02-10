@@ -29,16 +29,16 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">Update Batch</h5>
-                  <form action="{{route('batch.update', $Batch->id)}}" method="post" enctype = "multipart/form-data">
+                  <form action="{{route('batch.update', $batch->id)}}" method="post" enctype = "multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
                             <label for="Name">Batch Name</label>
-                            <input type="text" value="{{$Batch->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" value="{{$batch->name}}" name = "name" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                             <label for="Name">Batch Timing</label>
-                            <input type="text" value="{{$Batch->timing}}" name = "timing" class="form-control" id="" aria-describedby="Name" >
+                            <input type="text" value="{{$batch->timing}}" name = "timing" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         
                         <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Update</button>

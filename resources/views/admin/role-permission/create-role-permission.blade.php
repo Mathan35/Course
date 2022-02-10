@@ -36,10 +36,10 @@
                         <div class = "mt-3 mb-3">
                             <div class="row">
                                                              
-                              @foreach ($PermissionGroup as $item)
+                              @foreach ($permissionGroup as $item)
                                 <div class="col-2 border rounded m-1">
                                   <div class="m-1"><strong class="text-primary">{{$item->name}}</strong></div>
-                                   @foreach ($item->Permission as $value)   
+                                   @foreach ($item->permission as $value)   
                                       <div class="form-check m-1">
                                           <input class="form-check-input" type="checkbox" name="permission_id[]" value="{{$value->id}}" id="flexCheckDefault">
                                           <label class="form-check-label" for="flexCheckDefault">{{$value->name}}</label>

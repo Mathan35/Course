@@ -17,9 +17,9 @@ class CourseTechnologyController extends Controller
      */
     public function index()
     {
-        $GetCourse         = QueryBuilder::for(CourseTechnology::class)->get()->pluck('course_id');
-        $CheckedCourse     = QueryBuilder::for(Course::class)->whereIn('id',$GetCourse)->get();
-        return view('admin.course-technology.view-course-technology', compact('CheckedCourse'));
+        $getCourse         = QueryBuilder::for(CourseTechnology::class)->get()->pluck('course_id');
+        $checkedCourse     = QueryBuilder::for(Course::class)->whereIn('id',$getCourse)->get();
+        return view('admin.course-technology.view-course-technology', compact('checkedCourse'));
     }
 
     /**
@@ -29,9 +29,9 @@ class CourseTechnologyController extends Controller
      */
     public function create()
     {
-        $Course            = QueryBuilder::for(Course::class)->get();
-        $Technology        = QueryBuilder::for(Technology::class)->get();
-        return view('admin.course-technology.course-technology', compact('Course','Technology'));
+        $course            = QueryBuilder::for(Course::class)->get();
+        $technology        = QueryBuilder::for(Technology::class)->get();
+        return view('admin.course-technology.course-technology', compact('course','technology'));
     }
 
     /**
@@ -42,9 +42,9 @@ class CourseTechnologyController extends Controller
      */
     public function store(CourseTechnologyRequest $request)
     {
-        $Course     = Course::find($request->course_id);
-        $Technology = $request->technology_id;
-        $Course->Technology()->attach($Technology);
+        $course     = Course::find($request->course_id);
+        $technology = $request->technology_id;
+        $course->Technology()->attach($technology);
         return redirect()->back()->with('success', 'Course Technology successfully stored');
     }
 
@@ -67,11 +67,11 @@ class CourseTechnologyController extends Controller
      */
     public function edit($id)
     {
-        $Course            = QueryBuilder::for(Course::class)->get();
-        $GetCourse         = QueryBuilder::for(Course::class)->find($id);
-        $Technology        = QueryBuilder::for(Technology::class)->get();
-        $checkedTechnology = collect($GetCourse->Technology)->pluck('id')->toArray();
-        return view('admin.course-technology.edit-course-technology', compact('checkedTechnology','Course','GetCourse','Technology'));
+        $course            = QueryBuilder::for(Course::class)->get();
+        $getCourse         = QueryBuilder::for(Course::class)->find($id);
+        $technology        = QueryBuilder::for(Technology::class)->get();
+        $checkedTechnology = collect($getCourse->technology)->pluck('id')->toArray();
+        return view('admin.course-technology.edit-course-technology', compact('checkedTechnology','course','getCourse','technology'));
     }
 
     /**
@@ -83,9 +83,9 @@ class CourseTechnologyController extends Controller
      */
     public function update(CourseTechnologyRequest $request, $id)
     {
-        $Course     = Course::find($request->course_id);
-        $Technology = $request->technology_id;
-        $Course->Technology()->sync($Technology);
+        $course     = Course::find($request->course_id);
+        $technology = $request->technology_id;
+        $course->Technology()->sync($technology);
         return redirect()->back()->with('success', 'Course Technology successfully Updated');
     }
 

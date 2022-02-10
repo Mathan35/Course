@@ -29,36 +29,36 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[HomeController::class, 'Index'])->name('home');
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/user-registration',[HomeController::class, 'register'])->name('user-register');
 
-Route::post('auth-login',[LoginController::class, 'Login'])->name('auth-login');
+Route::post('auth-login',[LoginController::class, 'login'])->name('auth-login');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-    Route::get('dashboard',[HomeController::class, 'Dashboard'])->name('dashboard');
-    Route::get('user-profile',[HomeController::class, 'UserProfile'])->name('profile.show');
+    Route::get('dashboard',[HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('user-profile',[HomeController::class, 'userProfile'])->name('profile.show');
     //update profile
-    Route::post('update-profile',[HomeController::class, 'UpdateProfile'])->name('update-profile');
-    Route::get('view-payment-history',[HomeController::class, 'ViewPaymentHistory'])->name('view-payment-history');
+    Route::post('update-profile',[HomeController::class, 'updateProfile'])->name('update-profile');
+    Route::get('view-payment-history',[HomeController::class, 'viewPaymentHistory'])->name('view-payment-history');
     //ug degree
     Route::resource('ug-degree', UgDegreeController::class);
     //pg degree
     Route::resource('pg-degree', PgDegreeController::class);
     //education detail
-    Route::get('education-detail',[HomeController::class, 'EducationDetail'])->name('education-detail');
+    Route::get('education-detail',[HomeController::class, 'educationDetail'])->name('education-detail');
     //view course
-    Route::get('view-course/{id}',[HomeController::class, 'ViewCourse'])->name('view-course');
+    Route::get('view-course/{id}',[HomeController::class, 'viewCourse'])->name('view-course');
     //submit enquiry
-    Route::get('enquiry/{id}',[HomeController::class, 'Enquiry'])->name('enquiry');
+    Route::get('enquiry/{id}',[HomeController::class, 'enquiry'])->name('enquiry');
     //view enquiry
-    Route::get('view-enquiry',[HomeController::class, 'ViewEnquiry'])->name('view-enquiry');
+    Route::get('view-enquiry',[HomeController::class, 'viewEnquiry'])->name('view-enquiry');
     //admin routes
     Route::prefix('admin')->middleware('can:CheckAdmin,App\Models\User')->group(function(){
         //admin-dashboar
-        Route::get('admin-dashboard',[AdminController::class, 'AdminDashboard'])->name('admin-dashboard');
+        Route::get('admin-dashboard',[AdminController::class, 'adminDashboard'])->name('admin-dashboard');
         //admin-profile
-        Route::get('admin-profile',[AdminController::class, 'AdminProfile'])->name('admin-profile');
+        Route::get('admin-profile',[AdminController::class, 'adminProfile'])->name('admin-profile');
         //technology
         Route::resource('technology', TechnologyController::class);
         //course
@@ -82,47 +82,47 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
         //role permission
         Route::resource('admin-user', AdminUserController::class);
         //view enquiry
-        Route::get('enquiry-list/{status}',[AdminController::class, 'EnquiryList'])->name('enquiry-list');
+        Route::get('enquiry-list/{status}',[AdminController::class, 'enquiryList'])->name('enquiry-list');
         //view enquiry
-        Route::get('enquiy-status/{id}/{status}',[AdminController::class, 'EnquiryStatus'])->name('enquiry-status');
+        Route::get('enquiy-status/{id}/{status}',[AdminController::class, 'enquiryStatus'])->name('enquiry-status');
         //payment update
-        Route::get('payment-update/{id}',[AdminController::class, 'PaymentUpdate'])->name('payment-update');
+        Route::get('payment-update/{id}',[AdminController::class, 'paymentUpdate'])->name('payment-update');
         //payment update
-        Route::get('payment-view',[AdminController::class, 'PaymentView'])->name('payment-view');
+        Route::get('payment-view',[AdminController::class, 'paymentView'])->name('payment-view');
         //payment store
-        Route::post('store-payment',[AdminController::class, 'StorePayment'])->name('store-payment');
+        Route::post('store-payment',[AdminController::class, 'storePayment'])->name('store-payment');
         //payment dtails
-        Route::get('payment-details',[AdminController::class, 'PaymentDetails'])->name('payment-details');
+        Route::get('payment-details',[AdminController::class, 'paymentDetails'])->name('payment-details');
         //payment dtails
-        Route::get('pending-payment',[AdminController::class, 'PendingPayment'])->name('pending-payment');
+        Route::get('pending-payment',[AdminController::class, 'pendingPayment'])->name('pending-payment');
         //payment history
-        Route::get('payment-history',[AdminController::class, 'PaymentHistory'])->name('payment-history');
+        Route::get('payment-history',[AdminController::class, 'paymentHistory'])->name('payment-history');
         //view payment
-        Route::get('view-payment/{enquiry_id}',[AdminController::class, 'ViewPayment'])->name('view-payment');
+        Route::get('view-payment/{enquiry_id}',[AdminController::class, 'viewPayment'])->name('view-payment');
         //users list
-        Route::get('users-list',[AdminController::class, 'UsersList'])->name('users-list');
+        Route::get('users-list',[AdminController::class, 'usersList'])->name('users-list');
         //view user
-        Route::get('view-user/{id}',[AdminController::class, 'ViewUser'])->name('view-user');
+        Route::get('view-user/{id}',[AdminController::class, 'viewUser'])->name('view-user');
         //user status
-        Route::get('user-status/{id}/{status}',[AdminController::class, 'UserStatus'])->name('user-status');
+        Route::get('user-status/{id}/{status}',[AdminController::class, 'userStatus'])->name('user-status');
         //user course
-        Route::get('users-course',[AdminController::class, 'UserCourse'])->name('users-course');
+        Route::get('users-course',[AdminController::class, 'userCourse'])->name('users-course');
         //user course
-        Route::get('batch-users',[AdminController::class, 'BatchUsers'])->name('batch-users');
+        Route::get('batch-users',[AdminController::class, 'batchUsers'])->name('batch-users');
         //user course
-        Route::get('view-batch-users/{id}',[AdminController::class, 'ViewBatchUsers'])->name('view-batch-users');
+        Route::get('view-batch-users/{id}',[AdminController::class, 'viewBatchUsers'])->name('view-batch-users');
         //Settings
-        Route::get('settings',[AdminController::class, 'Settings'])->name('settings');
+        Route::get('settings',[AdminController::class, 'settings'])->name('settings');
         //update Settings
-        Route::post('update-settings',[AdminController::class, 'UpdateSettings'])->name('update-settings');
+        Route::post('update-settings',[AdminController::class, 'updateSettings'])->name('update-settings');
     });
 
 });
 
 //route for search courses
-Route::get('search-autocomplete', [HomeController::class, 'SearchAutocomplete'])->name('search-course');
-Route::get('search-result', [HomeController::class, 'SearchResult'])->name('search-result');
-Route::get('search-category/{id}', [HomeController::class, 'SearchCategory'])->name('search-category');
-Route::get('all-courses/', [HomeController::class, 'AllCourses'])->name('all-courses');
+Route::get('search-autocomplete', [HomeController::class, 'searchAutocomplete'])->name('search-course');
+Route::get('search-result', [HomeController::class, 'searchResult'])->name('search-result');
+Route::get('search-category/{id}', [HomeController::class, 'searchCategory'])->name('search-category');
+Route::get('all-courses/', [HomeController::class, 'allCourses'])->name('all-courses');
 
 

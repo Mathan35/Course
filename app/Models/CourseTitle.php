@@ -24,7 +24,7 @@ class CourseTitle extends Model
         return $this->hasOne(Course::class,'id','course_id');
     }
     //for roles to permissio
-    public function CourseTitleDescription()
+    public function courseTitleDescription()
     {
         return $this->HasMany(CourseTitleDetail::class);
     }

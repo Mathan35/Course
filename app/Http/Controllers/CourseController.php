@@ -23,8 +23,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $Course = QueryBuilder::for(Course::class)->orderBy('id', 'desc')->get();
-        return view('admin.course.view-course', compact('Course'));
+        $course = QueryBuilder::for(Course::class)->orderBy('id', 'desc')->get();
+        return view('admin.course.view-course', compact('course'));
 
     }
 
@@ -79,8 +79,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $Course = QueryBuilder::for(Course::class)->find($id);
-        return view('admin.course.edit-course', compact('Course'));
+        $course = QueryBuilder::for(Course::class)->find($id);
+        return view('admin.course.edit-course', compact('course'));
     }
 
     /**

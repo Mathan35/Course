@@ -44,7 +44,7 @@
                         </div>
                         <label for="Name">Select Role</label>
                         <select class="form-select" name="role" aria-label="Default select example">
-                            @foreach ($Role as $item)                                
+                            @foreach ($role as $item)                                
                             <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                           </select>

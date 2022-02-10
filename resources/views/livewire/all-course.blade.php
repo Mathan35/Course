@@ -16,9 +16,9 @@
                             <div class="row g-2 row-cols-lg-3 row-cols-sm-2 row-cols-1 getvalue">
                                 <div class="col">
                                     <div class="select-item" >
-                                        <select id="category"  wire:model = "GetCategory" name="category">
+                                        <select id="category"  wire:model = "getCategory" name="category">
                                             <option selected value="0">All Categories</option>
-                                            @foreach ($Category as $item)
+                                            @foreach ($category as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
                                             @endforeach
                                         </select>
@@ -29,9 +29,9 @@
                                 </div>
                                 <div class="col">
                                     <div class="select-item">
-                                        <select id="technology"  wire:model = "GetTechnology" name="technology">
+                                        <select id="technology"  wire:model = "getTechnology" name="technology">
                                             <option selected value="0">All Technology</option>
-                                            @foreach ($Technology as $item)
+                                            @foreach ($technology as $item)
                                             <option value="{{$item->id}}">{{$item->name}}</option>
                                             @endforeach
                                         </select>
@@ -42,9 +42,9 @@
                                 </div>
                                 <div class="col">
                                     <div class="select-item">
-                                        <select id="price" name="price"  wire:model = "GetPrice">
+                                        <select id="price" name="price"  wire:model = "getPrice">
                                             <option selected value="0">All Prices</option>
-                                            @foreach ($CoursePrice as $item)
+                                            @foreach ($coursePrice as $item)
                                             <option value="{{$item->id}}">{{$item->price}}</option>
                                             @endforeach
                                         </select>
@@ -71,7 +71,7 @@
             </div>
             <div class="section-wrapper">
                 <div class="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
-                    @forelse($Course as $item)
+                    @forelse($course as $item)
                     <div class="col">
                         <div class="course-item">
                             <div class="course-inner">

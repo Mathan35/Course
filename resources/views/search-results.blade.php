@@ -5,11 +5,11 @@
     <div class="course-section padding-tb section-bg">
         <div class="container">
             <div class="section-header text-center">
-                <span class="subtitle">Results for <span class="text-primary">{{$Search}}</span></span>
+                <span class="subtitle">Results for <span class="text-primary">{{$search}}</span></span>
             </div>
             <div class="section-wrapper">
                 <div class="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
-                    @forelse($SearchResult as $item)
+                    @forelse($searchResult as $item)
                     <div class="col">
                         <div class="course-item">
                             <div class="course-inner">

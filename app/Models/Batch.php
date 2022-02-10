@@ -21,7 +21,7 @@ class Batch extends Model
     ];
 
      //for enquiry to course
-     public function Enquiry()
+     public function enquiry()
      {
          return $this->hasMany(Enquiry::class, 'batch_id', 'id');
      }

@@ -25,17 +25,17 @@ class Enquiry extends Model
     ];
 
      //for enquiry to course
-     public function Course()
+     public function course()
      {
          return $this->hasOne(Course::class, 'id', 'course_id');
      }
     //for enquiry to course
-    public function User()
+    public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
     //for enquiry to course
-    public function Payment()
+    public function payment()
     {
         return $this->hasMany(Payment::class, 'enquiry_id', 'enquiry_id');
     }

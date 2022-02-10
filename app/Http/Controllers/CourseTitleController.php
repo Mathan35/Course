@@ -20,8 +20,8 @@ class CourseTitleController extends Controller
      */
     public function index()
     {
-        $CourseTitle   = QueryBuilder::for(CourseTitle::class)->get();
-        return view('admin.course-title.view-course-title', compact('CourseTitle'));
+        $courseTitle   = QueryBuilder::for(CourseTitle::class)->get();
+        return view('admin.course-title.view-course-title', compact('courseTitle'));
     }
 
     /**
@@ -31,9 +31,9 @@ class CourseTitleController extends Controller
      */
     public function create()
     {
-        $Course   = QueryBuilder::for(Course::class)->get();
-        $CourseTitle   = QueryBuilder::for(CourseTitle::class)->get();
-        return view('admin.course-title.course-title', compact('Course', 'CourseTitle'));
+        $course   = QueryBuilder::for(Course::class)->get();
+        $courseTitle   = QueryBuilder::for(CourseTitle::class)->get();
+        return view('admin.course-title.course-title', compact('course', 'courseTitle'));
     }
 
     /**
@@ -44,10 +44,10 @@ class CourseTitleController extends Controller
      */
     public function store(CourseTitleRequest $request)
     {
-        $CourseTitle              = new CourseTitle;
-        $CourseTitle->course_id   = $request->course_id;
-        $CourseTitle->title       = $request->title;
-        $CourseTitle->save();
+        $courseTitle              = new CourseTitle;
+        $courseTitle->course_id   = $request->course_id;
+        $courseTitle->title       = $request->title;
+        $courseTitle->save();
         return redirect()->back()->with('success', 'Course Title successfully stored');
     }
 
@@ -70,9 +70,9 @@ class CourseTitleController extends Controller
      */
     public function edit($id)
     {
-        $Course      = QueryBuilder::for(Course::class)->get();
-        $CourseTitle = QueryBuilder::for(CourseTitle::class)->find($id);
-        return view('admin.course-title.edit-course-title', compact('Course', 'CourseTitle'));
+        $course      = QueryBuilder::for(Course::class)->get();
+        $courseTitle = QueryBuilder::for(CourseTitle::class)->find($id);
+        return view('admin.course-title.edit-course-title', compact('course', 'courseTitle'));
     }
 
     /**
@@ -84,10 +84,10 @@ class CourseTitleController extends Controller
      */
     public function update(CourseTitleRequest $request, $id)
     {
-        $CourseTitle              = CourseTitle::find($id);
-        $CourseTitle->course_id   = $request->course_id;
-        $CourseTitle->title       = $request->title;
-        $CourseTitle->save();
+        $courseTitle              = CourseTitle::find($id);
+        $courseTitle->course_id   = $request->course_id;
+        $courseTitle->title       = $request->title;
+        $courseTitle->save();
         return redirect()->back()->with('success', 'Course Title successfully Deleted');
 
     }

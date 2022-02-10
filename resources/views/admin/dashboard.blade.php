@@ -32,7 +32,7 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{$EnquiryCount}}</h6>
+                      <h6>{{$enquiryCount}}</h6>
                       <span class="text-primary small pt-1 fw-bold">Total Enquiry </span> 
 
                     </div>
@@ -54,7 +54,7 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>${{$PaymentCount}}</h6>
+                      <h6>${{$paymentCount}}</h6>
                       <span class="text-success small pt-1 fw-bold">Total Payment </span> 
 
                     </div>
@@ -77,7 +77,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{$UserCount}}</h6>
+                      <h6>{{$userCount}}</h6>
                       <span class="text-danger small pt-1 fw-bold">Total User </span>
 
                     </div>
@@ -105,13 +105,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($Enquiry as $item)
+                      @foreach ($enquiry as $item)
                
                         <tr>
                           <th scope="row"><a href="#">{{$item->enquiry_id}}</a></th>
-                          <td>{{$item->User->name}}</td>
-                          <td>{{$item->Course->name}}</td>
-                          <td>{{$item->Course->price}}</td>
+                          <td>{{$item->user->name}}</td>
+                          <td>{{$item->course->name}}</td>
+                          <td>{{$item->course->price}}</td>
 
                           @if ($item->status  == "0")
                           <td ><span class="text-light bg-danger rounded p-1">Pending</span></td>
@@ -151,13 +151,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($Course as $item)  
-                      @if($item->Enquiry->count()>1)                        
+                      @foreach ($course as $item)  
+                      @if($item->enquiry->count()>1)                        
                       <tr>
                         <th scope="row"><a href="#"><img src="{{asset('assets/images/'.$item->image)}}" alt=""></a></th>
                         <td><a href="#" class="text-primary fw-bold">{{$item->name}}</a></td>
                         <td>${{$item->price}}</td>
-                        <td class="fw-bold">{{$item->Enquiry->count()}}</td>
+                        <td class="fw-bold">{{$item->enquiry->count()}}</td>
                       </tr>
                       @endif
                       @endforeach
@@ -181,12 +181,12 @@
 
               <div class="activity">
    
-                @forelse ($Enquiry as $item)                  
+                @forelse ($enquiry as $item)                  
                 <div class="activity-item d-flex">
                   <div class="activite-label ">{{$item->created_at->diffForHumans()}}</div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
-                    {{$item->enquiry_id}} <a  class="fw-bold text-dark"> - {{$item->Course->name}}</a> 
+                    {{$item->enquiry_id}} <a  class="fw-bold text-dark"> - {{$item->course->name}}</a> 
                     (
                       @if ($item->status == 0)
                       <a class="text-primary">Pending</a>
@@ -248,19 +248,19 @@
                         show: false
                       },
                       data: [{
-                          value: {{$UserCount}},
+                          value: {{$userCount}},
                           name: 'User'
                         },
                         {
-                          value: {{$EnquiryCount}},
+                          value: {{$enquiryCount}},
                           name: 'Enquiries'
                         },
                         {
-                          value: {{$PaymentCount}},
+                          value: {{$paymentCount}},
                           name: 'Payment'
                         },
                         {
-                          value: {{$CourseCount}},
+                          value: {{$courseCount}},
                           name: 'Courses'
                         },
                         // {

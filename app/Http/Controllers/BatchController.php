@@ -20,8 +20,8 @@ class BatchController extends Controller
      */
     public function index()
     {
-        $Batch = QueryBuilder::for(Batch::class)->get();
-        return view('admin.batch.view-batch', compact('Batch'));
+        $batch = QueryBuilder::for(Batch::class)->get();
+        return view('admin.batch.view-batch', compact('batch'));
     }
 
     /**
@@ -42,10 +42,10 @@ class BatchController extends Controller
      */
     public function store(BatchRequest $request)
     {
-        $Batch         = new Batch;
-        $Batch->name   = $request->name;
-        $Batch->timing = $request->timing;
-        $Batch->save();
+        $batch         = new Batch;
+        $batch->name   = $request->name;
+        $batch->timing = $request->timing;
+        $batch->save();
         return redirect()->back()->with('success', 'Batch successfully Saved');
 
     }
@@ -69,8 +69,8 @@ class BatchController extends Controller
      */
     public function edit($id)
     {
-        $Batch = QueryBuilder::for(Batch::class)->find($id);
-        return view('admin.batch.edit-batch', compact('Batch'));
+        $batch = QueryBuilder::for(Batch::class)->find($id);
+        return view('admin.batch.edit-batch', compact('batch'));
     }
 
     /**
@@ -82,10 +82,10 @@ class BatchController extends Controller
      */
     public function update(BatchRequest $request, $id)
     {
-        $Batch         = Batch::find($id);
-        $Batch->name   = $request->name;
-        $Batch->timing = $request->timing;
-        $Batch->save();
+        $batch         = Batch::find($id);
+        $batch->name   = $request->name;
+        $batch->timing = $request->timing;
+        $batch->save();
         return redirect()->back()->with('success', 'Batch successfully Updated');
     }
 

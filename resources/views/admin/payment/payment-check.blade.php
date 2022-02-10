@@ -42,15 +42,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($GetEnquiry as $item)
+                      @foreach ($getEnquiry as $item)
                         
                       <tr>
                         <th scope="row">{{$item->enquiry_id}}</th>
-                        <td scope="row">{{$item->User->name}}</td>
-                        <td>{{$item->Course->name}}</td>
-                        <td>{{$item->Course->price}}</td>
-                        <td class="text-success">{{$item->Payment->sum('amount')}}</td>
-                        <td class="text-danger">{{$item->Course->price - $item->Payment->sum('amount')}}</td>
+                        <td scope="row">{{$item->user->name}}</td>
+                        <td>{{$item->course->name}}</td>
+                        <td>{{$item->course->price}}</td>
+                        <td class="text-success">{{$item->payment->sum('amount')}}</td>
+                        <td class="text-danger">{{$item->course->price - $item->payment->sum('amount')}}</td>
                         <td><a href="{{route('payment-update',$item->id)}}">Update</a></td>
                       </tr>
 

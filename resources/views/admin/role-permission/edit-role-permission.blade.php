@@ -29,19 +29,19 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">Edit Role Permission</h5>
-                    <form action="{{route('role-permission.update',$Role->id)}}" method="post" >
+                    <form action="{{route('role-permission.update',$role->id)}}" method="post" >
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <label for="">Role Name</label>
-                        <input class="form-control" type="text" value="{{$Role->name}}" name="role" id="flexCheckDefault">
+                        <input class="form-control" type="text" value="{{$role->name}}" name="role" id="flexCheckDefault">
 
                         <label for="">Permission</label>
                         <div class = "mt-3 mb-3">
                             <div class="row">                                    
-                                @foreach ($PermissionGroup as $value)
+                                @foreach ($permissionGroup as $value)
                                     <div class="col-2  border rounded m-1">
                                       <div class="m-1"><strong class="text-primary">{{$value->name}}</strong></div>
-                                      @foreach ($value->Permission as $item)
+                                      @foreach ($value->permission as $item)
                                         @if(in_array($item->id, $checkedPermission))
                                         <div class="form-check mt-3">
                                             <input class="form-check-input" type="checkbox" name="permission_id[]" value="{{$item->id}}" checked id="flexCheckDefault">

@@ -12,12 +12,11 @@ use App\Models\Technology;
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
-use App\Helpers\Validate;
 use Spatie\QueryBuilder\QueryBuilder;
 
 trait Validate{
   
-    public function ValidateCourse($id){
+    public function validateCourse($id){
         $checkLearning         = QueryBuilder::for(Learning::class)->where('course_id',$id)->first();
         $checkCourseTechnology = QueryBuilder::for(CourseTechnology::class)->where('course_id',$id)->first();
         $checkCourseTitle      = QueryBuilder::for(CourseTitle::class)->where('course_id',$id)->first();
@@ -31,7 +30,7 @@ trait Validate{
         }
     }
 
-    public function ValidateTechnology($id){
+    public function validateTechnology($id){
         $checkTechnology   = QueryBuilder::for(CourseTechnology::class)->where('course_id',$id)->first();
         if($checkTechnology){
             return redirect()->back()->with('success', 'Technology already used Course Technology');
@@ -42,7 +41,7 @@ trait Validate{
         }
     }
 
-    public function ValidateCourseTechnology($id){
+    public function validateCourseTechnology($id){
         $checkCourseTitleDetail   = QueryBuilder::for(CourseTitleDetail::class)->where('course_title_id',$id)->first();
         if($checkCourseTitleDetail){
             return redirect()->back()->with('success', 'Course Title already used in Course Title Description');
@@ -52,19 +51,19 @@ trait Validate{
             return redirect()->back()->with('success', 'Course successfully Deleted');
         }
     }
-    public function ValidatePayment($id, $status){
-        $EnquiryUpdate = Enquiry::find($id);
-        $TotalAmount   = $EnquiryUpdate->Course->price;
-        $PaymentSum  = QueryBuilder::for(Payment::class)->where("enquiry_id",$EnquiryUpdate->enquiry_id)->get()->sum('amount');
+    public function validatePayment($id, $status){
+        $enquiryUpdate = Enquiry::find($id);
+        $totalAmount   = $enquiryUpdate->course->price;
+        $paymentSum    = QueryBuilder::for(Payment::class)->where("enquiry_id",$enquiryUpdate->enquiry_id)->get()->sum('amount');
         
-        if($status == 3 && $PaymentSum-$TotalAmount == 0){
-            $EnquiryUpdate->status = $status;
-            $EnquiryUpdate->save();
+        if($status == 3 && $paymentSum-$totalAmount == 0){
+            $enquiryUpdate->status = $status;
+            $enquiryUpdate->save();
             return redirect()->back()->with('success', 'Status successfully Updated');
         }
         elseif ($status != 3){
-            $EnquiryUpdate->status = $status;
-            $EnquiryUpdate->save();
+            $enquiryUpdate->status = $status;
+            $enquiryUpdate->save();
             return redirect()->back()->with('success', 'Status successfully Updated');
         }
         else{

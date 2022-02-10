@@ -17,8 +17,8 @@ class CategoryTechnologyController extends Controller
      */
     public function index()
     {
-        $Category   = QueryBuilder::for(Category::class)->get();
-        return view('admin.category-course.view-category-course', compact('Category'));
+        $category   = QueryBuilder::for(Category::class)->get();
+        return view('admin.category-course.view-category-course', compact('category'));
 
     }
 
@@ -29,8 +29,8 @@ class CategoryTechnologyController extends Controller
      */
     public function create()
     {
-        $Course  = QueryBuilder::for(Course::class)->get();   
-        return view('admin.category-course.create-category-course', compact('Course'));
+        $course  = QueryBuilder::for(Course::class)->get();   
+        return view('admin.category-course.create-category-course', compact('course'));
     }
 
     /**
@@ -41,12 +41,12 @@ class CategoryTechnologyController extends Controller
      */
     public function store(CategoryCourseRequest $request)
     {
-        $Category       = new Category;
-        $Category->name = $request->name;
-        $Category->save();
+        $category       = new Category;
+        $category->name = $request->name;
+        $category->save();
 
-        $Course = $request->course_id;
-        $Category->Course()->attach($Course);
+        $course = $request->course_id;
+        $category->Course()->attach($course);
         return redirect()->back()->with('success', 'Category Courses successfully stored');
     }
 
@@ -69,10 +69,10 @@ class CategoryTechnologyController extends Controller
      */
     public function edit($id)
     {
-        $Category          = QueryBuilder::for(Category::class)->find($id);
-        $Course            = QueryBuilder::for(Course::class)->get();
-        $checkedCourse = collect($Category->Course)->pluck('id')->toArray();
-        return view('admin.category-course.edit-category-course', compact('Course','Category','checkedCourse'));
+        $category          = QueryBuilder::for(Category::class)->find($id);
+        $course            = QueryBuilder::for(Course::class)->get();
+        $checkedCourse = collect($category->course)->pluck('id')->toArray();
+        return view('admin.category-course.edit-category-course', compact('course','category','checkedCourse'));
 
     }
 
@@ -85,12 +85,12 @@ class CategoryTechnologyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Category       = Category::find($id);
-        $Category->name = $request->name;
-        $Category->save();
+        $category       = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
 
-        $Course = $request->course_id;
-        $Category->Course()->sync($Course);
+        $course = $request->course_id;
+        $category->Course()->sync($course);
         return redirect()->back()->with('success', 'Category Courses successfully updated');
     }
 

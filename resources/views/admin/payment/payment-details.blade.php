@@ -39,12 +39,12 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($Enquiry as $item)
+                                  @foreach ($enquiry as $item)
                     
                                   <tr>
                                     <th scope="row">{{$item->enquiry_id}}</th>
                                     <td scope="row">{{$item->User->name}}</td>
-                                    <td>{{$item->Course->name}}</td>
+                                    <td>{{$item->course->name}}</td>
                                     <td><a class="btn btn-outline-info " href="{{route('view-payment',$item->enquiry_id)}}"> <i class="bi bi-eye-fill"></i></a></td>
                                   </tr>
 

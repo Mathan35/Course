@@ -29,8 +29,8 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">View Course</h5>
-                  <h2 class="h6 mt-3 text-primary"> Batch Name :- <span class="text-dark">{{$Batch->name}} </span></h2>
-                  <h2 class="h6 mt-3 text-primary mb-3"> Batch Timing :- <span class="text-dark">{{$Batch->timing}} </span></h2>
+                  <h2 class="h6 mt-3 text-primary"> Batch Name :- <span class="text-dark">{{$batch->name}} </span></h2>
+                  <h2 class="h6 mt-3 text-primary mb-3"> Batch Timing :- <span class="text-dark">{{$batch->timing}} </span></h2>
 
                   <table class="table table-borderless datatable">
                     <thead>
@@ -43,7 +43,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Batch->Enquiry as $value)
+                        @foreach ($batch->enquiry as $value)
                         <tr>
                             <th>{{$value->enquiry_id}}</th>
                             <td>{{$value->User->name}}</td>

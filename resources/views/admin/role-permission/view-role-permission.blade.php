@@ -39,7 +39,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Role as $item)
+                        @foreach ($role as $item)
                         <tr>
                         <th>{{$item->id}}</th>
                             <td class="text-primary">{{$item->name}}</td>

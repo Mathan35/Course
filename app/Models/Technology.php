@@ -22,7 +22,7 @@ class Technology extends Model
 
 
      //for roles to permissio
-     public function Course()
+     public function course()
      {
          return $this->belongsToMany(Course::class, 'course_technologies');
      }

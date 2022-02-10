@@ -6,11 +6,11 @@
     <div class="course-section padding-tb section-bg">
         <div class="container">
             <div class="section-header text-center">
-                <span class="subtitle">{{$CourseCategory->name}} Courses</span>
+                <span class="subtitle">{{$courseCategory->name}} Courses</span>
             </div>
             <div class="section-wrapper">
                 <div class="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
-                    @forelse($CourseCategory->Course as $item)
+                    @forelse($courseCategory->course as $item)
                     <div class="col">
                         <div class="course-item">
                             <div class="course-inner">

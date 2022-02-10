@@ -29,19 +29,19 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">Edit Course</h5>
-                    <form action="{{route('course-technology.update',$GetCourse->id)}}" method="post" >
+                    <form action="{{route('course-technology.update',$getCourse->id)}}" method="post" >
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <label for="">Course</label>
                         <select class="form-select" name="course_id" aria-label="Default select example">
-                            @foreach ($Course as $item)  
-                            <option value="{{$item->id}}" {{$item->id == $GetCourse->id ? "selected":""}}>{{$item->name}}</option>
+                            @foreach ($course as $item)  
+                            <option value="{{$item->id}}" {{$item->id == $getCourse->id ? "selected":""}}>{{$item->name}}</option>
                             @endforeach
 
                         </select>
                         <label for="">Technology</label>
                         <div class = "mt-3 mb-3">
-                            @foreach ($Technology as $value)
+                            @foreach ($technology as $value)
                             @if(in_array($value->id, $checkedTechnology))
                             <div class="form-check mt-3">
                                 <input class="form-check-input" type="checkbox" name="technology_id[]" value="{{$value->id}}" checked id="flexCheckDefault">
