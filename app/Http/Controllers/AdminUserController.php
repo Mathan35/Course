@@ -38,11 +38,11 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->role = $request->role;
-        $user->status = 1;
+        $user           = new User;
+        $user->name     = $request->name;
+        $user->email    = $request->email;
+        $user->role     = $request->role;
+        $user->status   = 1;
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->back()->with('success', 'user created successfully with role');
@@ -80,11 +80,11 @@ class AdminUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->role = $request->role;
+    {  
+        $user           = User::find($id);
+        $user->name     = $request->name;
+        $user->email    = $request->email;
+        $user->role     = $request->role;
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->back()->with('success', 'user updated successfully with role');

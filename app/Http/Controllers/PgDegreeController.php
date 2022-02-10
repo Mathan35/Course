@@ -43,19 +43,21 @@ class PgDegreeController extends Controller
     {
         $degree          = new Degree;
         $degree->name    = $request->degree;
-        if($request->file('degree_image')){
-        $degreeImage     = $request->file('degree_image')->getClientOriginalName();
-        $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
-        $degree->image   = $degreeImage;
+        if($request->file('degree_image'))
+        {
+            $degreeImage     = $request->file('degree_image')->getClientOriginalName();
+            $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
+            $degree->image   = $degreeImage;
         }
         $degree->save();
 
         $specializtion        = new Specializtion;
         $specializtion->name  = $request->specializtion;
-        if($request->file('specialization_image')){
-        $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
-        $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
-        $specializtion->image = $specializtionImage;
+        if($request->file('specialization_image'))
+        {
+            $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
+            $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
+            $specializtion->image = $specializtionImage;
         }
         $specializtion->save();
 
@@ -63,10 +65,11 @@ class PgDegreeController extends Controller
         $college           = new College;
         $college->name     = $request->college;
         $college->location = $request->location;
-        if($request->file('college_image')){
-        $collegeImage      = $request->file('college_image')->getClientOriginalName();
-        $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
-        $college->image    = $collegeImage;
+        if($request->file('college_image'))
+        {
+            $collegeImage      = $request->file('college_image')->getClientOriginalName();
+            $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
+            $college->image    = $collegeImage;
         }
         $college->save();
 
@@ -115,19 +118,21 @@ class PgDegreeController extends Controller
     {
         $degree          = Degree::find($request->degree_id);
         $degree->name    = $request->degree;
-        if($request->file('degree_image')){
-        $degreeImage     = $request->file('degree_image')->getClientOriginalName();
-        $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
-        $degree->image   = $degreeImage;
+        if($request->file('degree_image'))
+        {
+            $degreeImage     = $request->file('degree_image')->getClientOriginalName();
+            $request->file('degree_image')->move(public_path('assets/images/'),$degreeImage);
+            $degree->image   = $degreeImage;
         }
         $degree->save();
 
         $specializtion        = Specializtion::find($request->specialization_id);
         $specializtion->name  = $request->specializtion;
-        if($request->file('specialization_image')){
-        $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
-        $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
-        $specializtion->image = $specializtionImage;
+        if($request->file('specialization_image'))
+        {
+            $specializtionImage   = $request->file('specialization_image')->getClientOriginalName();
+            $request->file('specialization_image')->move(public_path('assets/images/'),$specializtionImage);
+            $specializtion->image = $specializtionImage;
         }
         $specializtion->save();
 
@@ -135,10 +140,11 @@ class PgDegreeController extends Controller
         $college           = College::find($request->college_id);
         $college->name     = $request->college;
         $college->location = $request->location;
-        if($request->file('college_image')){
-        $collegeImage      = $request->file('college_image')->getClientOriginalName();
-        $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
-        $college->image    = $collegeImage;
+        if($request->file('college_image'))
+        {
+            $collegeImage      = $request->file('college_image')->getClientOriginalName();
+            $request->file('college_image')->move(public_path('assets/images/'),$collegeImage);
+            $college->image    = $collegeImage;
         }
         $college->save();
 

@@ -137,12 +137,12 @@ class HomeController extends Controller
 
 
     public function searchResult(Request $request){
-        $course      = QueryBuilder::for(Course::class)->get();
-        $category    = QueryBuilder::for(Category::class)->get();
-        $technology  = QueryBuilder::for(Technology::class)->get();
-        $user        = QueryBuilder::for(User::class)->where("role","!=",1)->get()->count();
-        $enquiry     = QueryBuilder::for(Enquiry::class)->get()->count();
-        $search = $request->course_name;
+        $course       = QueryBuilder::for(Course::class)->get();
+        $category     = QueryBuilder::for(Category::class)->get();
+        $technology   = QueryBuilder::for(Technology::class)->get();
+        $user         = QueryBuilder::for(User::class)->where("role","!=",1)->get()->count();
+        $enquiry      = QueryBuilder::for(Enquiry::class)->get()->count();
+        $search       = $request->course_name;
         $searchResult = Course::where('name', $search)->get();
         return view('search-results', compact('searchResult','search','course','category', 'technology','user','enquiry'));
     }
