@@ -15,7 +15,6 @@ use App\Http\Controllers\CategoryTechnologyController;
 use App\Http\Controllers\CategoryCourseController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\AdminUserController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
