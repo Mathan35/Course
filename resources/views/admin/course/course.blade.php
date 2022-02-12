@@ -40,7 +40,27 @@
                         </div>
                         <div class="form-group">
                           <label for="Name">Actual Price</label>
-                          <input type="text" name = "actual_price" class="form-control" id="" aria-describedby="Name" >
+                          <input type="text" name="actual_price" class="form-control" id="" aria-describedby="Name" >
+                        </div>
+                        <div class="form-group">
+                          <label for="Name">Offer Percentange</label>
+                          <input type="text" name="offer_percentange" class="form-control" id="" aria-describedby="Name" >
+                        </div>
+                        <div class="form-group">
+                          <label for="Name">Course Level</label>
+                          <input type="text" name="course_level" class="form-control" id="" aria-describedby="Name" >
+                        </div>
+                        <div class="form-group">
+                          <label for="Name">Course Duration</label>
+                          <input type="text" name="course_duration" class="form-control" id="" aria-describedby="Name" >
+                        </div>
+                        <div class="form-group">
+                          <label for="Name">Class Type</label>
+                          <input type="text" name="class_type" class="form-control" id="" aria-describedby="Name" >
+                        </div>
+                        <div class="form-group">
+                          <label for="Name">Language</label>
+                          <input type="text" name="language" class="form-control" id="" aria-describedby="Name" >
                         </div>
                         <div class="form-group">
                             <label for="Name">Video URL</label>

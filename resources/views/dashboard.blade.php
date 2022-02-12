@@ -1,52 +1,38 @@
-@extends('layouts.user.dashboard-header')
+@extends('layouts.user.header')
 @section('content')
-      
-
-
-    <!-- Page Header section start here -->
-    <div class="pageheader-section style-2">
-        <div class="container ">
-            <div class="row  ">
-                <div class="col-lg-12 col-12 mb-5">
-                    <div class="pageheader-content mb-5">
-                        <h3 class="phs-title mb-3"><a href="{{route('home')}}">Home</a> / <span class="text-primary">Dashboard</span> </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header section ending here -->
-
     <!-- course section start here -->
     <div class="course-single-section padding-tb section-bg ">
         <div class="container">
-            <div class="row justify-content-center mx-3">
-               <div class="shadow-sm bg-white rounded">
-                    <div class="m-4">
-                        <p class="text-center h2 icon-dash"><i class="bi bi-stack"></i></p>
-                        <h5 class="text-center mt-2"><a class="float-right text-dark" href="{{route('education-detail')}}">Manage Education Details</a></h5>
+            <div class="row mt-4 mb-4">
+                <div class="col-lg-4 mb-5 text-center">
+                    <div class="card h-100 shadow border-10" style="border-radius:2.25rem !important;">
+                        <img style="border-radius: 2.25rem 2.25rem 0rem 0rem;" class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <div class="card-body p-4 text-white" style="background: linear-gradient(180deg,#f44881,#ec454f);">
+                            <a class="text-white" href="{{route('education-detail')}}"><strong>Manage Education Details</strong></a>
+                        </div>
+                        
                     </div>
-               </div>
-                
-               <div class="shadow-sm bg-white rounded mt-3">
-                   <div class="m-4">
-                        <p class="text-center h2 icon-dash"><i class="bi bi-card-checklist"></i></p>
-                        <h5 class="text-center mt-2"><a class="float-right text-dark" href="{{route('view-enquiry')}}">View Enquiry</a></h5>
-                   </div>
-                 
                 </div>
-
-                <div class="shadow-sm bg-white rounded mt-3">
-                    <div class="m-4">
-                         <p class="text-center h2 icon-dash"><i class='fas fa-dollar-sign'></i></p>
-                         <h5 class="text-center mt-2"><a class="float-right text-dark" href="{{route('view-payment-history')}}">Payment History</a></h5>
+                <div class="col-lg-4 mb-5 text-center">
+                    <div class="card h-100 shadow border-10" style="border-radius:2.25rem !important;">
+                        <img style="border-radius: 2.25rem 2.25rem 0rem 0rem;" class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <div class="card-body p-4 text-white" style="background: linear-gradient(180deg,#f44881,#ec454f);">
+                            <a class="text-white" href="{{route('view-enquiry')}}"><strong>View Enquiry</strong></a>
+                        </div>
+                        
                     </div>
-                  
                 </div>
-             
+                <div class="col-lg-4 mb-5 text-center">
+                    <div class="card h-100 shadow border-10" style="border-radius:2.25rem !important;">
+                        <img style="border-radius: 2.25rem 2.25rem 0rem 0rem;" class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <div class="card-body p-4 text-white" style="background: linear-gradient(180deg,#f44881,#ec454f);">
+                            <a class="text-white" href="{{route('view-payment-history')}}"><strong>Payment History</strong></a>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- course section ending here -->
-
     @endsection

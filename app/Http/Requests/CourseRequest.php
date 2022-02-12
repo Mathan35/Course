@@ -28,7 +28,12 @@ class CourseRequest extends FormRequest
             'short_description'      => 'required',
             'detailed_description'   => 'required',
             'price'                  => 'required',
-            'image'                  => 'required',
+            'actual_price'           => 'required',
+            'offer_percentange'      => 'required',
+            'course_level'           => 'required',
+            'course_duration'        => 'required',
+            'class_type'             => 'required',
+            'language'               => 'required',
         ];
     }
 

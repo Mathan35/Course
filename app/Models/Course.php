@@ -25,6 +25,11 @@ class Course extends Model
         'video_url',
     ];
 
+    public function categories()
+     {
+        return $this->belongsToMany(Category::class, 'category_courses');
+     }
+
      //for roles to permissio
      public function technology()
      {
@@ -34,17 +39,17 @@ class Course extends Model
      //for roles to permissio
      public function learning()
      {
-         return $this->HasMany(Learning::class);
+         return $this->hasMany(Learning::class);
      }
 
      //for roles to permissio
      public function enquiry()
      {
-         return $this->HasMany(Enquiry::class);
+         return $this->hasMany(Enquiry::class);
      }
       //for roles to permissio
-      public function courseTitle()
+      public function coursetitles()
       {
-          return $this->HasMany(CourseTitle::class);
+          return $this->hasMany(CourseTitle::class);
       }
 }

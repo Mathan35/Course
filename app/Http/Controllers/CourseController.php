@@ -51,7 +51,12 @@ class CourseController extends Controller
         $request->file('image')->move(public_path('assets/images/'),$image);
         $course->name                 = $request->name;
         $course->price                = $request->price;
-        $course->actual_price         = $request->actual_price  ;
+        $course->actual_price         = $request->actual_price;
+        $course->offer_percentange    = $request->offer_percentange;
+        $course->course_level         = $request->course_level;
+        $course->course_duration      = $request->course_duration;
+        $course->class_type           = $request->class_type;
+        $course->language             = $request->language;
         $course->video_url            = $request->video_url;
         $course->image                = $image;
         $course->short_description    = $request->short_description;
@@ -90,16 +95,24 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $course                       =  Course::find($id);
-        $image                        = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path('assets/images/'),$image);
+        if($request->hasFile('image')) {
+            $image                        = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('assets/images/'),$image);
+            $course->image                = $image;
+        }
+        
         $course->name                 = $request->name;
         $course->price                = $request->price;
-        $course->actual_price       = $request->actual_price;
+        $course->actual_price         = $request->actual_price;
+        $course->offer_percentange    = $request->offer_percentange;
+        $course->course_level         = $request->course_level;
+        $course->course_duration      = $request->course_duration;
+        $course->class_type           = $request->class_type;
+        $course->language             = $request->language;
         $course->video_url            = $request->video_url;
-        $course->image                = $image;
         $course->short_description    = $request->short_description;
         $course->detailed_description = $request->detailed_description;
         $course->save();

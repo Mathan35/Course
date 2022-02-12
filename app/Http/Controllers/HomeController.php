@@ -73,7 +73,10 @@ class HomeController extends Controller
         return view('education-detail', compact('getEducation','getPgEducation'));
     }
     public function viewCourse($id){
-        $course        = QueryBuilder::for(Course::class)->find($id);
+        $course        = QueryBuilder::for(Course::class)
+                                ->allowedIncludes(['categories'])
+                                ->with('categories','technology','learning','coursetitles')
+                                ->find($id);
         $checkEnquiry  = $this->CheckUser($id);
         return view('view-course', compact('course','checkEnquiry'));
     }

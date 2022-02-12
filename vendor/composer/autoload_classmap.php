@@ -35,6 +35,7 @@ return array(
     'App\\Http\\Controllers\\UgDegreeController' => $baseDir . '/app/Http/Controllers/UgDegreeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Livewire\\AllCourse' => $baseDir . '/app/Http/Livewire/AllCourse.php',
+    'App\\Http\\Livewire\\CourseTitleDetails' => $baseDir . '/app/Http/Livewire/CourseTitleDetails.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => $baseDir . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',

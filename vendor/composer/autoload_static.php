@@ -606,6 +606,7 @@ class ComposerStaticInit09839499b3bd6b9db334e3e65b50c703
         'App\\Http\\Controllers\\UgDegreeController' => __DIR__ . '/../..' . '/app/Http/Controllers/UgDegreeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\AllCourse' => __DIR__ . '/../..' . '/app/Http/Livewire/AllCourse.php',
+        'App\\Http\\Livewire\\CourseTitleDetails' => __DIR__ . '/../..' . '/app/Http/Livewire/CourseTitleDetails.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',

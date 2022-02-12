@@ -1,22 +1,5 @@
-@extends('layouts.user.dashboard-header')
+@extends('layouts.user.header')
 @section('content')
-      
-
-
-    <!-- Page Header section start here -->
-    <div class="pageheader-section style-2">
-        <div class="container ">
-            <div class="row  ">
-                <div class="col-lg-12 col-12 mb-5">
-                    <div class="pageheader-content mb-5">
-                        <h3 class="phs-title mb-3"><a href="{{route('home')}}">Home</a> / <span class="text-primary"> Previous Enquiry Details</span> </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header section ending here -->
-
     <!-- course section start here -->
     <div class="course-single-section padding-tb section-bg ">
         <div class="container card bg-light">

@@ -1,81 +1,95 @@
-@extends('layouts.auth')
-@section('content')
-      
-      <!-- Page Header section start here -->
-    <div class="pageheader-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="pageheader-content text-center">
-                        <h2>Register Page</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Register</li>
-                            </ol>
-                        </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register </title>
+    <link href="{{asset('own/css/styles.css')}}" rel="stylesheet" />
+
+</head>
+<style>
+    body {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    }
+
+    .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    }
+
+    .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+    }
+
+    .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+    }
+</style>
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+                <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
+                <x-jet-validation-errors class="mb-4 text-danger bg-light border rounded" />
+                @if (session('status'))
+                    <div class="mb-4 font-medium text-sm text-green-600">
+                        {{ session('status') }}
                     </div>
+                @endif
+              <form method="POST" action="{{ route('register') }}" class="signin-form">
+                @csrf 
+                <div class="form-floating mb-3">
+                  <input type="name" class="form-control" value="{{old('name')}}" required autofocus id="name"  name="name">
+                  <label for="floatingInput">Name</label>
                 </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" value="{{old('email')}}"  name="email">
+                  <label for="floatingPassword">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" value="{{old('phone')}}" name="phone">
+                    <label for="floatingPassword">Mobile Number</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" value="{{old('dob')}}"  name="dob">
+                    <label for="floatingPassword">DOB</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select value="{{old('country_id')}}" class="form-control " aria-label=" w-full" name="country_id">
+                        <option value="">SELECT COUNTRY</option>
+                        @foreach ($country as $item)
+                        <option class="text-dark" value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                    <label for="floatingPassword">SELECT COUNTRY</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control"  name="password" placeholder="Password" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control"  name="password_confirmation" placeholder="Confirm Password" required>
+                    <label for="floatingPassword">Confirm Password</label>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                    Up</button>
+                  <a class="mt-3 text-center" href="{{route('login')}}">Already Registered? click here to login</a>
+
+                </div>
+                <hr class="my-4">
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Page Header section ending here -->
-
-    <!-- Login Section Section Starts Here -->
-    <div class="login-section padding-tb section-bg">
-        <div class="text-center mx-5">
-            <x-jet-validation-errors class="mb-4 text-danger bg-light border rounded" />
-            @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
-            @endif
-        </div>
-        <div class="container">
-            <div class="account-wrapper">
-                <h3 class="title">Register</h3>
-
-                <form method="POST" action="{{ route('register') }}" class="signin-form">
-                    @csrf                 
-                    <div class="form-group mt-4">
-                        <input type="name" placeholder="Name" :value="old('name')" required autofocus id="name"  name="name">
-                    </div>
-                    <div class="form-group mt-4">
-                        <input type="email" placeholder="email" :value="old('email')" required autofocus id="email"  name="email">
-                    </div>
-                    <div class="form-group mt-4">
-                        <input type="text" placeholder="phone" :value="old('phone')" required autofocus id="phone"  name="phone">
-                    </div>
-                    <div class="form-group mt-4">
-                        <input type="date" placeholder="dob" :value="old('dob')" required autofocus id="dob"  name="dob">
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <select class="form-control text-dark" aria-label=" w-full" name="country_id">
-                            @foreach ($country as $item)
-                            <option class="text-dark" value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group mt-4">
-                        <input type="password" id="password" name="password"  autocomplete="new-password" placeholder="Password" required>
-                    </div>
-                    <div class="form-group mt-4">
-                        <input type="password"  id="password_confirmation" name="password_confirmation" autocomplete="new-password" placeholder="Confirm Password" required>
-                    </div>
-                    
-                    <div class="form-group mt-4">
-                        <button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
-                    </div>
-
-                    
-                </form>
-                <div class="account-bottom mt-3">
-                    <span class="d-block cate pt-10">Already Registered ? <a href="{{route('login')}}">Login</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Login Section Section Ends Here -->
-@endsection
+  </body>
+</html>
