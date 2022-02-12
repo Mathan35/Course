@@ -44,7 +44,7 @@
                     @if ($enquiry->batch_id == null)           
                       <label for="payment" class="mt-2">Batch</label>
                       <select class="form-select" name="batch_id" aria-label="Default select example">
-                        @foreach ($Batch as $item)
+                        @foreach ($batch as $item)
                           <option value="{{$item->id}}">{{$item->name}} ({{$item->timing}})</option>
                         @endforeach
                       </select>
@@ -60,16 +60,16 @@
 
                     <label for="mode" class="mt-2">Payment Mode</label>
                     <select class="form-select" name="payment_mode" aria-label="Default select example">
-                      @if(!in_array("Advance",$PaymentModes))
+                      @if(!in_array("Advance",$paymentModes))
                         <option value="Advance">Advance</option>
                       @endif
-                      @if(!in_array("EMI 1",$PaymentModes))
+                      @if(!in_array("EMI 1",$paymentModes))
                         <option value="EMI 1">EMI 1</option>
                       @endif
-                      @if(!in_array("EMI 2",$PaymentModes))
+                      @if(!in_array("EMI 2",$paymentModes))
                         <option value="EMI 2">EMI 2</option>
                       @endif
-                      @if(!in_array("Full Payment",$PaymentModes))
+                      @if(!in_array("Full Payment",$paymentModes))
                         <option value="Full Payment">Full Payment</option>
                       @endif
                     </select>

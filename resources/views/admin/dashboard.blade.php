@@ -26,7 +26,6 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Enquiry</h5>
-
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
@@ -34,7 +33,6 @@
                     <div class="ps-3">
                       <h6>{{$enquiryCount}}</h6>
                       <span class="text-primary small pt-1 fw-bold">Total Enquiry </span> 
-
                     </div>
                   </div>
                 </div>

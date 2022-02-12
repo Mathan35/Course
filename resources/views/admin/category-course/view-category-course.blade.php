@@ -34,6 +34,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Category Name</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Technology Name</th>
                         <th scope="col">Action</th>
                       </tr>
@@ -43,6 +44,7 @@
                         <tr>
                         <th>{{$item->id}}</th>
                             <td>{{$item->name}}</td>
+                            <td><img src="{{asset($item->image)}}" height="100" width="100"/></td>
                             <td>
                               @foreach ($item->course as $value)
                               {{$value->name}},

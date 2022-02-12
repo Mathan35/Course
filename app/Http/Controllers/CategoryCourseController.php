@@ -43,6 +43,11 @@ class CategoryCourseController extends Controller
     {
         $category       = new Category;
         $category->name = $request->name;
+        if($request->file('image')){
+            $image  = time().$request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('assets/categoryimages/'),$image);
+            $category->image = 'assets/categoryimages/'.$image;
+        }
         $category->save();
 
         $course = $request->course_id;

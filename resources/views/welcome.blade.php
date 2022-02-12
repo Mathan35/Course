@@ -97,9 +97,9 @@
                 @forelse ($category as $item)
                 <div class="col-lg-4 mb-5">
                     <div class="card h-100 shadow border-10" style="border-radius:2.25rem !important;">
-                        <img style="border-radius: 2.25rem 2.25rem 0rem 0rem;" class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                        <img style="border-radius: 2.25rem 2.25rem 0rem 0rem;" class="card-img-top" src="{{asset($item->image)}}" alt="..." />
                         <div class="card-body p-4 text-white" style="background: linear-gradient(180deg,#f44881,#ec454f);">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{$item->name}}</div>
                             <a class="text-decoration-none link-dark stretched-link" href="{{route('search-category',$item->id)}}"><h5 class="card-title text-white mb-3">{{$item->name}}</h5></a>
                             <p class="card-text mb-0">{{$item->Course->count()}} Course</p>
                         </div>

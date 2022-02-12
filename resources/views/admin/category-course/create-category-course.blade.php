@@ -28,7 +28,7 @@
                   <x-Message-component/>
 
                   <h5 class="card-title">Create Category Technology</h5>
-                    <form action="{{route('category-course.store')}}" method="post" >
+                    <form action="{{route('category-course.store')}}" method="post" enctype="multipart/form-data" >
                         @csrf
                         <label for="">Category Name</label>
                         <input class="form-control" type="text" name="name" id="flexCheckDefault">
@@ -42,6 +42,9 @@
                             </div>
                             @endforeach
                         </div>
+                        <div class = "mt-3 mb-3">
+                          <input type="file" name="image" id="">
+                      </div>
                         <button class="btn btn-primary mt-4 mb-3 text-dark " type="submit">Submit</button>
                     </form>
                 </div>
